@@ -459,6 +459,8 @@ if selected == 'Prediction':
     
     model_for_prediction = st.selectbox("Select a model", ["Select a model:", "Resnet50V2", "VGG16"]) 
     if model_for_prediction == "Select a model":
+        placeholder = st.empty()
+        placeholder.selectbox("Please select a model to continue", [])
         st.info("A model has to be selected to make a prediction.")
     else:
         if model_for_prediction == "Resnet50V2":
@@ -482,8 +484,7 @@ if selected == 'Prediction':
             image_file = st.file_uploader("Upload an image to classify:", type=["jpg", "jpeg", "png", "tiff"])
 
         with m_col:  
-            # Inserting a vertical line using HTML syntax
-            st.markdown("""<div style="border-left: 2px solid #666; height: 500px; margin-top: 20px"></div>""", unsafe_allow_html=True)
+            st.subheader("OR")
 
         with r_col:
             selected_class = st.selectbox("Select a class:", ["Please make selection",*RES_CLASS_LABELS])
