@@ -230,7 +230,7 @@ if selected == 'E.D.A.':
     st.subheader('UMAP')
     st.markdown("""
     The plot of the dimension reduction trough Uniform Manifold Approximation and Projection (UMAP) shows that the images tend to be clustered according to their originating 
-    dataset instead of the blood cell types. The only class that is clearly visible are platelets which are only represented in one dataset.  
+    dataset instead of the blood cell types. The only class that clearly visible are platelets which are only represented in one dataset.  
         """)
     
     # Load the HTML file
@@ -247,14 +247,14 @@ if selected == 'E.D.A.':
     
     with st.container():
         col1, col2, col3, col4, col5, col6, col7, col8 = st.columns(8)
-        col1.write("<p style='font-size:14px'>Basophil</p>", unsafe_allow_html=True)
-        col2.write("<p style='font-size:14px'>Eosinophil</p>", unsafe_allow_html=True)
-        col3.write("<p style='font-size:14px'>Erythroblast</p>", unsafe_allow_html=True)
-        col4.write("<p style='font-size:14px'>IG</p>", unsafe_allow_html=True)
-        col5.write("<p style='font-size:14px'>Lymphocyte</p>", unsafe_allow_html=True)
-        col6.write("<p style='font-size:14px'>Monocyte</p>", unsafe_allow_html=True)
-        col7.write("<p style='font-size:14px'>Neutrophil</p>", unsafe_allow_html=True)
-        col8.write("<p style='font-size:14px'>Platelet</p>", unsafe_allow_html=True)
+        col1.write("<p style='font-size:14px;text-align:center'>Basophil</p>", unsafe_allow_html=True)
+        col2.write("<p style='font-size:14px;text-align:center'>Eosinophil</p>", unsafe_allow_html=True)
+        col3.write("<p style='font-size:14px;text-align:center'>Erythroblast</p>", unsafe_allow_html=True)
+        col4.write("<p style='font-size:14px;text-align:center'>IG</p>", unsafe_allow_html=True)
+        col5.write("<p style='font-size:14px;text-align:center'>Lymphocyte</p>", unsafe_allow_html=True)
+        col6.write("<p style='font-size:14px;text-align:center'>Monocyte</p>", unsafe_allow_html=True)
+        col7.write("<p style='font-size:14px;text-align:center'>Neutrophil</p>", unsafe_allow_html=True)
+        col8.write("<p style='font-size:14px;text-align:center'>Platelet</p>", unsafe_allow_html=True)
     
     with st.container():
         col1, col2, col3, col4, col5, col6, col7, col8 = st.columns(8)
@@ -265,17 +265,6 @@ if selected == 'E.D.A.':
         col5.image(cell_05, use_column_width=True, caption = 'LT, Munich')
         col6.image(cell_06, use_column_width=True, caption = 'MON, Munich')
         col7.image(cell_07, use_column_width=True, caption = 'NEU, Munich')
-        
-    with st.container():
-        col1, col2, col3, col4, col5, col6, col7, col8 = st.columns(8)
-        col1.write("<p style='font-size:8px'>Basophil, Munich</p>", unsafe_allow_html=True)
-        col2.write("<p style='font-size:14px'>Eosinophil</p>", unsafe_allow_html=True)
-        col3.write("<p style='font-size:14px'>Erythroblast</p>", unsafe_allow_html=True)
-        col4.write("<p style='font-size:14px'>IG</p>", unsafe_allow_html=True)
-        col5.write("<p style='font-size:14px'>Lymphocyte</p>", unsafe_allow_html=True)
-        col6.write("<p style='font-size:14px'>Monocyte</p>", unsafe_allow_html=True)
-        col7.write("<p style='font-size:14px'>Neutrophil</p>", unsafe_allow_html=True)
-        col8.write("<p style='font-size:14px'>Platelet</p>", unsafe_allow_html=True)
 
 
     with st.container():
@@ -397,7 +386,7 @@ if selected == 'Modelisation':
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 # Necessary function and variables
 RES_MODEL = "models/Best_model_ft_5th_layer.h5"
-VGG_MODEL = "model/vgg16_augmented_model.h5"
+VGG_MODEL = "models/vgg16_augmented_model.h5"
 IMG_SIZE = (360,360) 
 
 
@@ -411,7 +400,14 @@ RES_CLASS_LABELS = ['Basophil',
                     'Neutrophil',
                     'Platelet']
 
-VGG_CLASS_LABELS = 
+VGG_CLASS_LABELS = ['Basophil',
+                    'Neutrophil',
+                    'Monocyte',
+                    'Ymphocyte',
+                    'Platelet',
+                    'Eosinophil',
+                    'Immature granulocytes',
+                    'Erythroblast']
 
 #function to load model
 @st.cache_resource
@@ -427,19 +423,7 @@ def f1(y_true, y_pred):
         
         recall = TP / (Positives+K.epsilon())    
         return recall
-
-#load the model to use for predictions
-try:
-    #Create a dictionary mapping the function name to the function object
-    custom_objects = {'f1': f1}
-
-    # Load the Keras model using custom_object_scope
-    with tf.keras.utils.custom_object_scope(custom_objects):
-        model = load_dl_model(VGG_MODEL)
-
-except Exception as e:
-    st.write(e)
-
+    
 # Preprocess image
 def preprocess_image(image):
     if image is not None:
@@ -453,8 +437,11 @@ def predict(image):
     if image is not None:
         image = preprocess_image(image)
         predictions = model.predict(tf.expand_dims(image, axis=0))[0]
-        predicted_class = CLASS_LABELS[predictions.argmax()]
-        confidence = predictions
+        if model_for_prediction == "Resnet50V2":
+            predicted_class = RES_CLASS_LABELS[predictions.argmax()]
+        elif model_for_prediction == "VGG16":
+            predicted_class = VGG_CLASS_LABELS[predictions.argmax()]      
+        confidence = predictions.max()
         return predicted_class, confidence   
 
 # list all available images to make predicitions on (no images uploaded so far right?)   
@@ -469,14 +456,34 @@ def list_images(directory, file_type):
 if selected == 'Prediction':
 
     st.header('Prediction')
-    st.subheader("Choose a model to classify a blood cell image")
+    st.subheader("Here you can choose a model to classify a blood cell image")
+    
+    model_for_prediction = st.selectbox("Select a model", ["Resnet50V2", "VGG16"]) 
+    
+    if model_for_prediction = "Resnet50V2":
+
+        #Create a dictionary mapping the function name to the function object
+        custom_objects = {'f1': f1}
+
+        # Load the Keras model using custom_object_scope
+        with tf.keras.utils.custom_object_scope(custom_objects):
+            model = load_dl_model(RES_MODEL)
+            
+    elif model_for_prediction == "VGG16":
+        model = load_dl_model(VGG_MODEL)
+    
+    else:
+        st.error("You have to choose a model to make a prediction")
+
     
     l_col, r_col = st.columns(2)
     with l_col:
         image_file = st.file_uploader("Upload an image to classify:", type=["jpg", "jpeg", "png", "tiff"])
+        
+    st.markdown("---")
     
     with r_col:
-        selected_class = st.selectbox("Select a class:", ["Please make selection",CLASS_LABELS])
+        selected_class = st.selectbox("Select a class:", ["Please make selection",*RES_CLASS_LABELS])
         
     if st.button("Predict"):    
         if image_file is not None:
@@ -491,11 +498,11 @@ if selected == 'Prediction':
 
         col1, col2 = st.columns(2)
         with col1:
-            st.markdown("##Predicted class:")
+            st.title("Predicted class:")
             st.write(f"{predicted_class}")
         with col2:
-            st.markdown("##Confidence score:")
-            st.write(f"{confidence}")
+            st.subheader("##Confidence score:")
+            st.write(f"{confidence:.2f}")
 
         # Display additional information about the predicted class
         if predicted_class == "Eosinophil":
