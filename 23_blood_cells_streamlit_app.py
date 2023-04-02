@@ -241,7 +241,7 @@ if selected == 'E.D.A.':
         col1.write("<p style='font-size:14px'>Basophil</p>", unsafe_allow_html=True)
         col2.write("<p style='font-size:14px'>Eosinophil</p>", unsafe_allow_html=True)
         col3.write("<p style='font-size:14px'>Erythroblast</p>", unsafe_allow_html=True)
-        col4.write("<p style='font-size:14px'>IG</p>", unsafe_allow_html=True)
+        col4.write("<p style='font-size:14px;text-align=center'>IG</p>", unsafe_allow_html=True)
         col5.write("<p style='font-size:14px'>Lymphocyte</p>", unsafe_allow_html=True)
         col6.write("<p style='font-size:14px'>Monocyte</p>", unsafe_allow_html=True)
         col7.write("<p style='font-size:14px'>Neutrophil</p>", unsafe_allow_html=True)
