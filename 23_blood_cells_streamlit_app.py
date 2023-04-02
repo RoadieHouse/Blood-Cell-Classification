@@ -265,17 +265,6 @@ if selected == 'E.D.A.':
         col5.image(cell_05, use_column_width=True, caption = 'LT, Munich')
         col6.image(cell_06, use_column_width=True, caption = 'MON, Munich')
         col7.image(cell_07, use_column_width=True, caption = 'NEU, Munich')
-        
-    with st.container():
-        col1, col2, col3, col4, col5, col6, col7, col8 = st.columns(8)
-        col1.write("<p style='font-size:8px'>Basophil, Munich</p>", unsafe_allow_html=True)
-        col2.write("<p style='font-size:8px'>Eosinophil, Munich</p>", unsafe_allow_html=True)
-        col3.write("<p style='font-size:8px'>Erythroblast, Munich</p>", unsafe_allow_html=True)
-        col4.write("<p style='font-size:8px'>IG,\n Munich</p>", unsafe_allow_html=True)
-        col5.write("<p style='font-size:8px'>Lymphocyte, Munich</p>", unsafe_allow_html=True)
-        col6.write("<p style='font-size:8px'>Monocyte, Munich</p>", unsafe_allow_html=True)
-        col7.write("<p style='font-size:8px'>Neutrophil, Munich</p>", unsafe_allow_html=True)
-
 
     with st.container():
         col1, col2, col3, col4, col5, col6, col7, col8 = st.columns(8)
