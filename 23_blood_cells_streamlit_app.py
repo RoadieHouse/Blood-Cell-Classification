@@ -378,7 +378,7 @@ if selected == 'Modelisation':
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 # Necessary function and variables
 RES_MODEL = "models/Best_model_ft_5th_layer.h5"
-VGG_MODEL = "model/vgg16_augmented_model.h5"
+VGG_MODEL = "models/vgg16_augmented_model.h5"
 IMG_SIZE = (360,360) 
 
 
@@ -406,18 +406,6 @@ def f1(y_true, y_pred):
         
         recall = TP / (Positives+K.epsilon())    
         return recall
-
-#load the model to use for predictions
-try:
-    #Create a dictionary mapping the function name to the function object
-    custom_objects = {'f1': f1}
-
-    # Load the Keras model using custom_object_scope
-    with tf.keras.utils.custom_object_scope(custom_objects):
-        model = load_dl_model(VGG_MODEL)
-
-except Exception as e:
-    st.write(e)
 
 # Preprocess image
 def preprocess_image(image):
@@ -450,12 +438,27 @@ if selected == 'Prediction':
     st.header('Prediction')
     st.subheader("Choose a model to classify a blood cell image")
     
+    #select a model
+    m_choice = st.selectbox("Please select a model", ["Resnet50V2", "VGG16"])
+    if m_choice =="Resnet50V2":
+        custom_objects = {'f1': f1}
+
+        # Load the Keras model using custom_object_scope
+        with tf.keras.utils.custom_object_scope(custom_objects):
+            model = load_dl_model(RES_MODEL)
+            
+    elif m_choice == "VGG16":
+        model = load_dl_model(VGG_MODEL)
+    
+    else:
+        st.error("A model needs to chosen to make a prediction.")
+    
     l_col, r_col = st.columns(2)
     with l_col:
         image_file = st.file_uploader("Upload an image to classify:", type=["jpg", "jpeg", "png", "tiff"])
     
     with r_col:
-        selected_class = st.selectbox("Select a class:", ["Please make selection",CLASS_LABELS])
+        selected_class = st.selectbox("Select a class:", ["Please make selection",*CLASS_LABELS])
         
     if st.button("Predict"):    
         if image_file is not None:
