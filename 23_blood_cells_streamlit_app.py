@@ -475,14 +475,14 @@ if selected == 'Prediction':
         st.error("You have to choose a model to make a prediction")
 
     
-    l_col, r_col = st.columns(2)
+    l_col, m_col, r_col = st.columns(3)
     with l_col:
         image_file = st.file_uploader("Upload an image to classify:", type=["jpg", "jpeg", "png", "tiff"])
         
-    # Inserting a vertical line using HTML syntax
-    st.markdown("""<div style="border-left: 2px solid #666; height: 500px; margin-top: 20px"></div>""", unsafe_allow_html=True)
+    with m_col:  
+        # Inserting a vertical line using HTML syntax
+        st.markdown("""<div style="border-left: 2px solid #666; height: 500px; margin-top: 20px"></div>""", unsafe_allow_html=True)
 
-    
     with r_col:
         selected_class = st.selectbox("Select a class:", ["Please make selection",*RES_CLASS_LABELS])
         
