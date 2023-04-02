@@ -457,71 +457,73 @@ if selected == 'Prediction':
     st.header('Prediction')
     st.subheader("Here you can choose a model to classify a blood cell image")
     
-    model_for_prediction = st.selectbox("Select a model", ["Resnet50V2", "VGG16"]) 
-    
-    if model_for_prediction == "Resnet50V2":
-
-        #Create a dictionary mapping the function name to the function object
-        custom_objects = {'f1': f1}
-
-        # Load the Keras model using custom_object_scope
-        with tf.keras.utils.custom_object_scope(custom_objects):
-            model = load_dl_model(RES_MODEL)
-            
-    elif model_for_prediction == "VGG16":
-        model = load_dl_model(VGG_MODEL)
-    
+    model_for_prediction = st.selectbox("Select a model", ["Select a model:", "Resnet50V2", "VGG16"]) 
+    if model_for_prediction == "Select a model":
+        st.info("A model has to be selected to make a prediction.")
     else:
-        st.error("You have to choose a model to make a prediction")
+        if model_for_prediction == "Resnet50V2":
 
-    
-    l_col, m_col, r_col = st.columns(3)
-    with l_col:
-        image_file = st.file_uploader("Upload an image to classify:", type=["jpg", "jpeg", "png", "tiff"])
-        
-    with m_col:  
-        # Inserting a vertical line using HTML syntax
-        st.markdown("""<div style="border-left: 2px solid #666; height: 500px; margin-top: 20px"></div>""", unsafe_allow_html=True)
+            #Create a dictionary mapping the function name to the function object
+            custom_objects = {'f1': f1}
 
-    with r_col:
-        selected_class = st.selectbox("Select a class:", ["Please make selection",*RES_CLASS_LABELS])
-        
-    if st.button("Predict"):    
-        if image_file is not None:
-            image = Image.open(image_file)
-        if image_file is None:
-            st.info("Please upload an image to classify or choose one from the dropdown manu on the right") 
-            #something with selected classes
-            #image = ...
-            
-        st.image(image, caption="Uploaded Image", use_column_width=True)
-        predicted_class, confidence = predict(image)
+            # Load the Keras model using custom_object_scope
+            with tf.keras.utils.custom_object_scope(custom_objects):
+                model = load_dl_model(RES_MODEL)
 
-        col1, col2 = st.columns(2)
-        with col1:
-            st.subheader("Predicted class:")
-            st.write(f"{predicted_class}")
-        with col2:
-            st.subheader("Confidence score:")
-            st.write(f"{confidence:.2f}")
+        elif model_for_prediction == "VGG16":
+            model = load_dl_model(VGG_MODEL)
 
-        # Display additional information about the predicted class
-        if predicted_class == "Eosinophil":
-            st.info("Eosinophils are a type of white blood cell involved in the immune response to parasites and allergies.")
-        elif predicted_class == "Lymphocyte":
-            st.info("Lymphocytes are a type of white blood cell involved in the immune response to infections and cancer.")
-        elif predicted_class == "Monocyte":
-            st.info("Monocytes are a type of white blood cell involved in the immune response to infections and inflammation.")
-        elif predicted_class == "Neutrophil":
-            st.info("Neutrophils are a type of white blood cell involved in the immune response to bacterial and fungal infections.")
-        elif predicted_class == "Immature granulocytes":
-            st.info("Immature granulocytes, including promyelocytes, myelocytes, and metamyelocytes, are early-stage white blood cells that are typically elevated in response to acute bacterial infections and inflammatory disorders.")
-        elif predicted_class == "Basophils":
-            st.info("Basophils are a type of white blood cell involved in the immune response against parasites and are also involved in the inflammatory response.")
-        elif predicted_class == "Platelet":
-            st.info("Platelets are small, colorless cell fragments in the blood that play a crucial role in blood clotting and the prevention of excessive bleeding.")
-        elif predicted_class == "Erythroblast":
-            st.info("Erythroblasts are immature red blood cells that are involved in the production of hemoglobin and the transportation of oxygen throughout the body.")
+        else:
+            st.error("You have to choose a model to make a prediction")
+
+
+        l_col, m_col, r_col = st.columns(3)
+        with l_col:
+            image_file = st.file_uploader("Upload an image to classify:", type=["jpg", "jpeg", "png", "tiff"])
+
+        with m_col:  
+            # Inserting a vertical line using HTML syntax
+            st.markdown("""<div style="border-left: 2px solid #666; height: 500px; margin-top: 20px"></div>""", unsafe_allow_html=True)
+
+        with r_col:
+            selected_class = st.selectbox("Select a class:", ["Please make selection",*RES_CLASS_LABELS])
+
+        if st.button("Predict"):    
+            if image_file is not None:
+                image = Image.open(image_file)
+            if image_file is None:
+                st.info("Please upload an image to classify or choose one from the dropdown manu on the right") 
+                #something with selected classes
+                #image = ...
+
+            st.image(image, caption="Uploaded Image", use_column_width=True)
+            predicted_class, confidence = predict(image)
+
+            col1, col2 = st.columns(2)
+            with col1:
+                st.subheader("Predicted class:")
+                st.write(f"{predicted_class}")
+            with col2:
+                st.subheader("Confidence score:")
+                st.write(f"{confidence:.2f}")
+
+            # Display additional information about the predicted class
+            if predicted_class == "Eosinophil":
+                st.info("Eosinophils are a type of white blood cell involved in the immune response to parasites and allergies.")
+            elif predicted_class == "Lymphocyte":
+                st.info("Lymphocytes are a type of white blood cell involved in the immune response to infections and cancer.")
+            elif predicted_class == "Monocyte":
+                st.info("Monocytes are a type of white blood cell involved in the immune response to infections and inflammation.")
+            elif predicted_class == "Neutrophil":
+                st.info("Neutrophils are a type of white blood cell involved in the immune response to bacterial and fungal infections.")
+            elif predicted_class == "Immature granulocytes":
+                st.info("Immature granulocytes, including promyelocytes, myelocytes, and metamyelocytes, are early-stage white blood cells that are typically elevated in response to acute bacterial infections and inflammatory disorders.")
+            elif predicted_class == "Basophils":
+                st.info("Basophils are a type of white blood cell involved in the immune response against parasites and are also involved in the inflammatory response.")
+            elif predicted_class == "Platelet":
+                st.info("Platelets are small, colorless cell fragments in the blood that play a crucial role in blood clotting and the prevention of excessive bleeding.")
+            elif predicted_class == "Erythroblast":
+                st.info("Erythroblasts are immature red blood cells that are involved in the production of hemoglobin and the transportation of oxygen throughout the body.")
     
     # Add some padding and styling elements to the selectbox and file uploader
     st.markdown('<style>div[role="listbox"] > div:nth-child(1) {padding: 10px; font-family: Arial, sans-serif;}</style>', unsafe_allow_html=True)
