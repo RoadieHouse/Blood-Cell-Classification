@@ -499,7 +499,8 @@ if selected == 'Prediction':
                 st.title("Confidence score:")
                 conf_percent = confidence * 100
                 if conf_percent > 50:
-                    st.subheader(f"Confidence score: <span style='color:green'>{conf_percent}%</span>")
+                    #st.markdown(f"'<p style="color: green; font-size: 20px;">{conf_percent}%</span>", unsafe_allow_html=True)
+                    st.markdown('<p style="color: green; font-size: 24px;">'conf_percent'%</p>', unsafe_allow_html=True)
                 else:
                     st.subheader("f:red[{conf_percent}%]")
 
