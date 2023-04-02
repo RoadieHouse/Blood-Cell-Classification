@@ -497,8 +497,14 @@ if selected == 'Prediction':
                 st.subheader(f"{predicted_class}")
             with col2:
                 st.title("Confidence score:")
-                st.subheader(f"{confidence:.2f}")
+                if confidence > .5:
+                    st.subheader(f":green[{confidence:.2f}]")
+                else:
+                    st.subheader(f":red[{confidence:.2f}]")
+
             
+            
+            st.write("")
             st.write("\n\n Additional information:")
 
             # Display additional information about the predicted class
