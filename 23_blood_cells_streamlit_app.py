@@ -467,7 +467,7 @@ if selected == 'Prediction':
             #image = ...
             
         st.image(image, caption="Uploaded Image", use_column_width=True)
-        predicted_class, confidence = predict(image)
+        predicted_class, confidence, shape = predict(image)
 
         col1, col2 = st.columns(2)
         with col1:
