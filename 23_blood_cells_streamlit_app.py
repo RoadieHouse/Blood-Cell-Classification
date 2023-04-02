@@ -400,7 +400,7 @@ VGG_CLASS_LABELS = ['Basophil',
                     'Platelet',
                     'Eosinophil',
                     'Immature granulocytes',
-                    'Erythroblast'
+                    'Erythroblast']
 
 #function to load model
 @st.cache_resource
