@@ -376,7 +376,7 @@ CLASS_LABELS = ['Basophil',
                 'Platelet']
 
 #function to load model
-@st.cache_resources
+@st.cache_resource
 def load_dl_model():
     model = tf.keras.models.load_model(MODEL)
     return model
