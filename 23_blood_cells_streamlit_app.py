@@ -226,57 +226,65 @@ if selected == 'E.D.A.':
                 """)
     st.image(img_EDA_03, caption = 'Greyscale pixel distribution of the images per class')
     
+    
+    st.subheader('UMAP')
+    st.markdown("""
+    The plot of the dimension reduction trough Uniform Manifold Approximation and Projection (UMAP) shows that the images tend to be clustered according to their originating 
+    dataset instead of the blood cell types. The only class that clearly visible are platelets which are only represented in one dataset.  
+        """)
+    
     # Load the HTML file
     #html_file = open('UMAP_3D_scatter.html', 'r', encoding='utf-8')
     #source_code = html_file.read()
 
     # Display the HTML file
     #components.html(source_code, height=1000, width=1000, scrolling=True)
-    
-    #st.subheader('Brightness')
-    
-    #st.subheader('Brightness')
-    with st.container():
-        col1, col2, col3, col4, col5, col6, col7, col8 = st.columns(8)
-        col1.write("<p style='font-size:14px;text-align:center'>Basophil</p>", unsafe_allow_html=True)
-        col2.write("<p style='font-size:14px;text-align:center'>Eosinophil</p>", unsafe_allow_html=True)
-        col3.write("<p style='font-size:14px;text-align:center'>Erythroblast</p>", unsafe_allow_html=True)
-        col4.write("<p style='font-size:14px;text-align:center'>IG</p>", unsafe_allow_html=True)
-        col5.write("<p style='font-size:14px;text-align:center'>Lymphocyte</p>", unsafe_allow_html=True)
-        col6.write("<p style='font-size:14px;text-align:center'>Monocyte</p>", unsafe_allow_html=True)
-        col7.write("<p style='font-size:14px;text-align:center'>Neutrophil</p>", unsafe_allow_html=True)
-        col8.write("<p style='font-size:14px;text-align:center'>Platlet</p>", unsafe_allow_html=True)
-   
 
+    st.markdown("""
+    The following sample of images sorted by classes and origin as far as available visualizes different stainings and exposures according to their sources. Furthermore 
+    some images from different blood cell types show high similaritys.
+        """)    
+    
     with st.container():
         col1, col2, col3, col4, col5, col6, col7, col8 = st.columns(8)
-        col1.image(cell_01, use_column_width=True, caption = 'BAS, Munich')
-        col2.image(cell_02, use_column_width=True, caption = 'EOS, Munich')
-        col3.image(cell_03, use_column_width=True, caption = "ERY, Munich")
+        col1.write('Basophil')
+        col2.write('Eosinophil')
+        col3.write('Erythroblast')
+        col4.write('IG')
+        col5.write('Lymphocyte')
+        col6.write('Monocyte')
+        col7.write('Neutrophil')
+        col8.write('Platelet')
+    
+    with st.container():
+        col1, col2, col3, col4, col5, col6, col7, col8 = st.columns(8)
+        col1.image(cell_01, use_column_width=True, caption = 'Basophil, Munich')
+        col2.image(cell_02, use_column_width=True, caption = 'Eosinophil, Barcelona')
+        col3.image(cell_03, use_column_width=True, caption = 'Erythroblast, Munich')
         col4.image(cell_04, use_column_width=True, caption = 'IG, Munich')
-        col5.image(cell_05, use_column_width=True, caption = "LT, Munich")
-        col6.image(cell_06, use_column_width=True, caption = 'MON, Munich')
-        col7.image(cell_07, use_column_width=True, caption = 'NEU, Munich')
+        col5.image(cell_05, use_column_width=True, caption = 'Lymphocyte, Munich')
+        col6.image(cell_06, use_column_width=True, caption = 'Monocyte, Munich')
+        col7.image(cell_07, use_column_width=True, caption = 'Neutrophil, Munich')
 
 
     with st.container():
         col1, col2, col3, col4, col5, col6, col7, col8 = st.columns(8)
-        col1.image(cell_09, use_column_width=True, caption = 'BAS, Barcelona')
-        col2.image(cell_10, use_column_width=True, caption = 'EOS, Barcelona')
-        col3.image(cell_11, use_column_width=True, caption = 'ERY, Barcelona') 
-        col4.image(cell_12, use_column_width=True, caption = 'IG, Barcelona')
-        col5.image(cell_13, use_column_width=True, caption = 'LT, Barcelona')
-        col6.image(cell_14, use_column_width=True, caption = 'MON, Barcelona')
-        col7.image(cell_15, use_column_width=True, caption = 'NEU, Barcelona')
-        col8.image(cell_16, use_column_width=True, caption = 'Platlet, Barcelona')
+        col1.image(cell_09, use_column_width=True, caption = 'Basophil, Barcelona')
+        col2.image(cell_10, use_column_width=True, caption = 'Eosinophil, Barcelona')
+        col3.image(cell_11, use_column_width=True, caption = 'Erythroblast, Barcelona') 
+        col4.image(cell_12, use_column_width=True, caption = 'IG, Munich')
+        col5.image(cell_13, use_column_width=True, caption = 'Lymphocyte, Barcelona')
+        col6.image(cell_14, use_column_width=True, caption = 'Monocyte, Barcelona')
+        col7.image(cell_15, use_column_width=True, caption = 'Neutrophil, Barcelona')
+        col8.image(cell_16, use_column_width=True, caption = 'Platelet, Barcelona')
 
     with st.container():
         col1, col2, col3, col4, col5, col6, col7, col8 = st.columns(8)
-        col1.image(cell_17, use_column_width=True, caption = 'BAS, Raabin')
-        col2.image(cell_18, use_column_width=True, caption = 'EOS, Raabin')
-        col5.image(cell_21, use_column_width=True, caption = "LT, Raabin")
-        col6.image(cell_22, use_column_width=True, caption = 'MON, Raabin')
-        col7.image(cell_23, use_column_width=True, caption = 'NEU, Raabin')
+        col1.image(cell_17, use_column_width=True, caption = 'Basophil, Raabin')
+        col2.image(cell_18, use_column_width=True, caption = 'Eosinophil, Raabin')
+        col5.image(cell_21, use_column_width=True, caption = 'Lymphocyte, Raabin')
+        col6.image(cell_22, use_column_width=True, caption = 'Monocyte, Raabin')
+        col7.image(cell_23, use_column_width=True, caption = 'Lymphocyte, Raabin')
 #------------------------------------------------------------------------------------------------------------------------------------------    
 #Section Models     
 if selected == 'Modelisation':
@@ -378,7 +386,7 @@ if selected == 'Modelisation':
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 # Necessary function and variables
 RES_MODEL = "models/Best_model_ft_5th_layer.h5"
-VGG_MODEL = "models/vgg16_augmented_model.h5"
+VGG_MODEL = "model/vgg16_augmented_model.h5"
 IMG_SIZE = (360,360) 
 
 
@@ -406,6 +414,18 @@ def f1(y_true, y_pred):
         
         recall = TP / (Positives+K.epsilon())    
         return recall
+
+#load the model to use for predictions
+try:
+    #Create a dictionary mapping the function name to the function object
+    custom_objects = {'f1': f1}
+
+    # Load the Keras model using custom_object_scope
+    with tf.keras.utils.custom_object_scope(custom_objects):
+        model = load_dl_model(VGG_MODEL)
+
+except Exception as e:
+    st.write(e)
 
 # Preprocess image
 def preprocess_image(image):
@@ -438,27 +458,12 @@ if selected == 'Prediction':
     st.header('Prediction')
     st.subheader("Choose a model to classify a blood cell image")
     
-    #select a model
-    m_choice = st.selectbox("Please select a model", ["Resnet50V2", "VGG16"])
-    if m_choice =="Resnet50V2":
-        custom_objects = {'f1': f1}
-
-        # Load the Keras model using custom_object_scope
-        with tf.keras.utils.custom_object_scope(custom_objects):
-            model = load_dl_model(RES_MODEL)
-            
-    elif m_choice == "VGG16":
-        model = load_dl_model(VGG_MODEL)
-    
-    else:
-        st.error("A model needs to chosen to make a prediction.")
-    
     l_col, r_col = st.columns(2)
     with l_col:
         image_file = st.file_uploader("Upload an image to classify:", type=["jpg", "jpeg", "png", "tiff"])
     
     with r_col:
-        selected_class = st.selectbox("Select a class:", ["Please make selection",*CLASS_LABELS])
+        selected_class = st.selectbox("Select a class:", ["Please make selection",CLASS_LABELS])
         
     if st.button("Predict"):    
         if image_file is not None:
