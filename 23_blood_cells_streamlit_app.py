@@ -360,7 +360,7 @@ if selected == 'Modelisation':
 
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 # Necessary function and variables
-MODEL = "Best_model_ft_5th_layer.h5"
+MODEL = "models/Best_model_ft_5th_layer.h5"
 
 IMG_SIZE = (360,360) 
 
