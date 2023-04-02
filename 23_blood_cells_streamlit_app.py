@@ -417,7 +417,7 @@ def predict(image):
         image = preprocess_image(image)
         predictions = model.predict(tf.expand_dims(image, axis=0))[0]
         predicted_class = CLASS_LABELS[predictions.argmax()]
-        confidence = predictions.max()
+        confidence = predictions
         return predicted_class, confidence    
 
 # list all available images to make predicitions on (no images uploaded so far right?)   
