@@ -500,7 +500,7 @@ if selected == 'Prediction':
                 conf_percent = confidence * 100
                 if conf_percent > 50:
                     
-                    st.subheader("f:green[{conf_percent}%]")
+                    st.subheader("f:green:`{conf_percent}%`")
                 else:
                     st.subheader("f:red[{conf_percent}%]")
 
