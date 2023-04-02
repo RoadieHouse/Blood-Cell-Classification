@@ -458,7 +458,7 @@ if selected == 'Prediction':
             st.write(f"{predicted_class}")
         with col2:
             st.markdown("##Confidence score:")
-            st.write(f"{confidence:.2f}")
+            st.write(f"{confidence}")
 
         # Display additional information about the predicted class
         if predicted_class == "Eosinophil":
