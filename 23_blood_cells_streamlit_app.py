@@ -42,19 +42,30 @@ Analysis_05_mix = Image.open('images/Analysis_05_mix.png')
 Analysis_07_Amri = Image.open('images/Analysis_07_Amri.png')
 Analysis_08_Amri = Image.open('images/Analysis_08_Amri.png')
 Analysis_09_Amri = Image.open('images/analysis_09_Amri.png')
-cell_01 = Image.open('images/M_Eos.jpg')
-cell_02 = Image.open('images/M_Neu.jpg')
-cell_03 = Image.open('images/M_LT.jpg')
-cell_04 = Image.open('images/M_Bas.jpg')
-cell_05 = Image.open('images/B_Eos.jpg')
-cell_06 = Image.open('images/B_Neu.jpg')
-cell_07 = Image.open('images/B_LT.jpg')
-cell_08 = Image.open('images/B_Bas.jpg')
-cell_09 = Image.open('images/Ra_Eos.jpg')
-cell_10 = Image.open('images/Ra_Neu.jpg')
-cell_11 = Image.open('images/Ra_LT.jpg')
-cell_12 = Image.open('images/Ra_Bas.jpg')
-
+cell_01 = Image.open('images/M_Bas.jpg')
+cell_02 = Image.open('images/M_Eos.jpg')
+cell_03 = Image.open('images/M_Er.jpg')
+cell_04 = Image.open('images/M_ig.jpg')
+cell_05 = Image.open('images/M_LT.jpg')
+cell_06 = Image.open('images/M_Mon.jpg')
+cell_07 = Image.open('images/M_Neu.jpg')
+cell_08 = Image.open('images/x.png')
+cell_09 = Image.open('images/B_Bas.jpg')
+cell_10 = Image.open('images/B_Eos.jpg')
+cell_11 = Image.open('images/B_Er.jpg')
+cell_12 = Image.open('images/B_ig.jpg')
+cell_13 = Image.open('images/B_LT.jpg')
+cell_14 = Image.open('images/B_Mon.jpg')
+cell_15 = Image.open('images/B_Neu.jpg')
+cell_16 = Image.open('images/B_Plat.jpg')
+cell_17 = Image.open('images/Ra_Bas.jpg')
+cell_18 = Image.open('images/Ra_Eos.jpg')
+cell_19 = Image.open('images/x.png')
+cell_20 = Image.open('images/x.png')
+cell_21 = Image.open('images/Ra_LT.jpg')
+cell_22 = Image.open('images/Ra_Mon.jpg')
+cell_23 = Image.open('images/Ra_Neu.jpg')
+cell_24 = Image.open('images/x.png')
 #------------------------------------------------------------------------------------------------------------------------------------------
 # Title of the Page
 Header = st.container()
@@ -216,27 +227,56 @@ if selected == 'E.D.A.':
     st.image(img_EDA_03, caption = 'Greyscale pixel distribution of the images per class')
     
     # Load the HTML file
-    html_file = open('UMAP_3D_scatter.html', 'r', encoding='utf-8')
-    source_code = html_file.read()
+    #html_file = open('UMAP_3D_scatter.html', 'r', encoding='utf-8')
+    #source_code = html_file.read()
 
     # Display the HTML file
-    components.html(source_code, height=1000, width=1000, scrolling=True)
+    #components.html(source_code, height=1000, width=1000, scrolling=True)
     
-    st.subheader('Brightness')
+    #st.subheader('Brightness')
     
-    col1, col2, col3, col4 = st.columns(4)
-    col1.image(cell_01, use_column_width=True, caption = 'Eosinophil, Munich')
-    col2.image(cell_02, use_column_width=True, caption = 'Neutrophil, Munich')
-    col3.image(cell_03, use_column_width=True, caption = 'Lymphocyte, Munich')
-    col4.image(cell_04, use_column_width=True, caption = 'Basophil, Munich')
-    col1.image(cell_05, use_column_width=True, caption = 'Eosinophil, Barcelona')
-    col2.image(cell_06, use_column_width=True, caption = 'Neutrophil, Barcelona')
-    col3.image(cell_07, use_column_width=True, caption = 'Lymphocyte, Barcelona')
-    col4.image(cell_08, use_column_width=True, caption = 'Basophil, Barcelona')
-    col1.image(cell_09, use_column_width=True, caption = 'Eosinophil, Raabin')
-    col2.image(cell_10, use_column_width=True, caption = 'Neutrophil, Raabin')
-    col3.image(cell_11, use_column_width=True, caption = 'Lymphocyte, Raabin') 
-    col4.image(cell_12, use_column_width=True, caption = 'Basophil, Raabin')
+    #st.subheader('Brightness')
+    with st.container():
+        col1, col2, col3, col4, col5, col6, col7, col8 = st.columns(8)
+        col1.write("<p style='font-size:14px;text-align:center'>Basophil</p>", unsafe_allow_html=True)
+        col2.write("<p style='font-size:14px;text-align:center'>Eosinophil</p>", unsafe_allow_html=True)
+        col3.write("<p style='font-size:14px;text-align:center'>Erythroblast</p>", unsafe_allow_html=True)
+        col4.write("<p style='font-size:14px;text-align:center'>IG</p>", unsafe_allow_html=True)
+        col5.write("<p style='font-size:14px;text-align:center'>Lymphocyte</p>", unsafe_allow_html=True)
+        col6.write("<p style='font-size:14px;text-align:center'>Monocyte</p>", unsafe_allow_html=True)
+        col7.write("<p style='font-size:14px;text-align:center'>Neutrophil</p>", unsafe_allow_html=True)
+        col8.write("<p style='font-size:14px;text-align:center'>Platlet</p>", unsafe_allow_html=True)
+   
+
+    with st.container():
+        col1, col2, col3, col4, col5, col6, col7, col8 = st.columns(8)
+        col1.image(cell_01, use_column_width=True, caption = 'BAS, Munich')
+        col2.image(cell_02, use_column_width=True, caption = 'EOS, Munich')
+        col3.image(cell_03, use_column_width=True, caption = "ERY, Munich")
+        col4.image(cell_04, use_column_width=True, caption = 'IG, Munich')
+        col5.image(cell_05, use_column_width=True, caption = "LT, Munich")
+        col6.image(cell_06, use_column_width=True, caption = 'MON, Munich')
+        col7.image(cell_07, use_column_width=True, caption = 'NEU, Munich')
+
+
+    with st.container():
+        col1, col2, col3, col4, col5, col6, col7, col8 = st.columns(8)
+        col1.image(cell_09, use_column_width=True, caption = 'BAS, Barcelona')
+        col2.image(cell_10, use_column_width=True, caption = 'EOS, Barcelona')
+        col3.image(cell_11, use_column_width=True, caption = 'ERY, Barcelona') 
+        col4.image(cell_12, use_column_width=True, caption = 'IG, Barcelona')
+        col5.image(cell_13, use_column_width=True, caption = 'LT, Barcelona')
+        col6.image(cell_14, use_column_width=True, caption = 'MON, Barcelona')
+        col7.image(cell_15, use_column_width=True, caption = 'NEU, Barcelona')
+        col8.image(cell_16, use_column_width=True, caption = 'Platlet, Barcelona')
+
+    with st.container():
+        col1, col2, col3, col4, col5, col6, col7, col8 = st.columns(8)
+        col1.image(cell_17, use_column_width=True, caption = 'BAS, Raabin')
+        col2.image(cell_18, use_column_width=True, caption = 'EOS, Raabin')
+        col5.image(cell_21, use_column_width=True, caption = "LT, Raabin")
+        col6.image(cell_22, use_column_width=True, caption = 'MON, Raabin')
+        col7.image(cell_23, use_column_width=True, caption = 'NEU, Raabin')
 #------------------------------------------------------------------------------------------------------------------------------------------    
 #Section Models     
 if selected == 'Modelisation':
@@ -337,7 +377,7 @@ if selected == 'Modelisation':
 
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 # Necessary function and variables
-MODEL = "Best_model_ft_5th_layer.h5"
+MODEL = "models/Best_model_ft_5th_layer.h5"
 
 IMG_SIZE = (360,360) 
 
@@ -353,7 +393,7 @@ CLASS_LABELS = ['Basophil',
                 'Platelet']
 
 #function to load model
-@st.cache_resources
+@st.cache_resource
 def load_dl_model():
     model = tf.keras.models.load_model(MODEL)
     return model
@@ -374,7 +414,6 @@ try:
 
     # Load the Keras model using custom_object_scope
     with tf.keras.utils.custom_object_scope(custom_objects):
-        #@st.cache_data
         model = load_dl_model()
 
 except Exception as e:
@@ -382,20 +421,20 @@ except Exception as e:
 
 # Preprocess image
 def preprocess_image(image):
-    if image_file is not None:
-        image = image.resize(IMG_SIZE)
+    if image is not None:
+        image = ImageOps.fit(image, IMG_SIZE, Image.BICUBIC)
         image = tf.keras.preprocessing.image.img_to_array(image)
-        image = tf.keras.applications.resnet_v2.preprocess_input(image)
+        #image = tf.keras.applications.resnet_v2.preprocess_input(image)
         return image
     
 # Function to make predictions
 def predict(image):
-    if image_file is not None:
+    if image is not None:
         image = preprocess_image(image)
         predictions = model.predict(tf.expand_dims(image, axis=0))[0]
         predicted_class = CLASS_LABELS[predictions.argmax()]
-        confidence = predictions.max()
-        return predicted_class, confidence    
+        confidence = predictions
+        return predicted_class, confidence   
 
 # list all available images to make predicitions on (no images uploaded so far right?)   
 def list_images(directory, file_type):
@@ -435,7 +474,7 @@ if selected == 'Prediction':
             st.write(f"{predicted_class}")
         with col2:
             st.markdown("##Confidence score:")
-            st.write(f"{confidence:.2f}")
+            st.write(f"{confidence}")
 
         # Display additional information about the predicted class
         if predicted_class == "Eosinophil":
