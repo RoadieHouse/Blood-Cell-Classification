@@ -233,15 +233,15 @@ if selected == 'E.D.A.':
     # Display the HTML file
     #components.html(source_code, height=1000, width=1000, scrolling=True)
     
-    st.subheader('Brightness')
+    #st.subheader('Brightness')
     
-    st.subheader('Brightness')
+    #st.subheader('Brightness')
     with st.container():
         col1, col2, col3, col4, col5, col6, col7, col8 = st.columns(8)
         col1.write("<p style='font-size:14px'>Basophil</p>", unsafe_allow_html=True)
         col2.write("<p style='font-size:14px'>Eosinophil</p>", unsafe_allow_html=True)
         col3.write("<p style='font-size:14px'>Erythroblast</p>", unsafe_allow_html=True)
-        col4.write("<p style='font-size:14px;text-align=center'>IG</p>", unsafe_allow_html=True)
+        col4.write("<p style='font-size:14px;text-align:center'>IG</p>", unsafe_allow_html=True)
         col5.write("<p style='font-size:14px'>Lymphocyte</p>", unsafe_allow_html=True)
         col6.write("<p style='font-size:14px'>Monocyte</p>", unsafe_allow_html=True)
         col7.write("<p style='font-size:14px'>Neutrophil</p>", unsafe_allow_html=True)
