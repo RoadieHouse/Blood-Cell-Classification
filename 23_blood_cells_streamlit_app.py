@@ -439,7 +439,7 @@ def predict(image):
         if model_for_prediction == "Resnet50V2":
             predicted_class = RES_CLASS_LABELS[predictions.argmax()]
         elif model_for_prediction == "VGG16":
-            predicted_class = VGG_CLASS_LABELS[predictions.argmax()]      
+            predicted_class = RES_CLASS_LABELS[predictions.argmax()]      
         confidence = predictions.max()
         return predicted_class, confidence   
 
