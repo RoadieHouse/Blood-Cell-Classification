@@ -434,7 +434,8 @@ def predict(image):
         predictions = model.predict(tf.expand_dims(image, axis=0))[0]
         predicted_class = CLASS_LABELS[predictions.argmax()]
         confidence = predictions
-        return predicted_class, confidence    
+        shape = tf.expand_dims(image, axis=0).shape
+        return predicted_class, confidence, shape   
 
 # list all available images to make predicitions on (no images uploaded so far right?)   
 def list_images(directory, file_type):
@@ -475,6 +476,7 @@ if selected == 'Prediction':
         with col2:
             st.markdown("##Confidence score:")
             st.write(f"{confidence}")
+            st.write(f"{shape}")
 
         # Display additional information about the predicted class
         if predicted_class == "Eosinophil":
