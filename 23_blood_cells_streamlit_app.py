@@ -249,33 +249,33 @@ if selected == 'E.D.A.':
     
     with st.container():
         col1, col2, col3, col4, col5, col6, col7, col8 = st.columns(8)
-        col1.image(cell_01, use_column_width=True, caption = 'Basophil, Munich')
-        col2.image(cell_02, use_column_width=True, caption = 'Eosinophil, Barcelona')
-        col3.image(cell_03, use_column_width=True, caption = 'Erythroblast, Munich')
+        col1.image(cell_01, use_column_width=True, caption = 'BAS, Munich')
+        col2.image(cell_02, use_column_width=True, caption = 'EOS, Barcelona')
+        col3.image(cell_03, use_column_width=True, caption = 'ERY, Munich')
         col4.image(cell_04, use_column_width=True, caption = 'IG, Munich')
-        col5.image(cell_05, use_column_width=True, caption = 'Lymphocyte, Munich')
-        col6.image(cell_06, use_column_width=True, caption = 'Monocyte, Munich')
-        col7.image(cell_07, use_column_width=True, caption = 'Neutrophil, Munich')
+        col5.image(cell_05, use_column_width=True, caption = 'LT, Munich')
+        col6.image(cell_06, use_column_width=True, caption = 'MON, Munich')
+        col7.image(cell_07, use_column_width=True, caption = 'NEU, Munich')
 
 
     with st.container():
         col1, col2, col3, col4, col5, col6, col7, col8 = st.columns(8)
-        col1.image(cell_09, use_column_width=True, caption = 'Basophil, Barcelona')
-        col2.image(cell_10, use_column_width=True, caption = 'Eosinophil, Barcelona')
-        col3.image(cell_11, use_column_width=True, caption = 'Erythroblast, Barcelona') 
+        col1.image(cell_09, use_column_width=True, caption = 'BAS, Barcelona')
+        col2.image(cell_10, use_column_width=True, caption = 'EOS, Barcelona')
+        col3.image(cell_11, use_column_width=True, caption = 'ERY, Barcelona') 
         col4.image(cell_12, use_column_width=True, caption = 'IG, Munich')
-        col5.image(cell_13, use_column_width=True, caption = 'Lymphocyte, Barcelona')
-        col6.image(cell_14, use_column_width=True, caption = 'Monocyte, Barcelona')
-        col7.image(cell_15, use_column_width=True, caption = 'Neutrophil, Barcelona')
+        col5.image(cell_13, use_column_width=True, caption = 'LT, Barcelona')
+        col6.image(cell_14, use_column_width=True, caption = 'MON, Barcelona')
+        col7.image(cell_15, use_column_width=True, caption = 'NEU, Barcelona')
         col8.image(cell_16, use_column_width=True, caption = 'Platlet, Barcelona')
 
     with st.container():
         col1, col2, col3, col4, col5, col6, col7, col8 = st.columns(8)
-        col1.image(cell_17, use_column_width=True, caption = 'Basophil, Raabin')
-        col2.image(cell_18, use_column_width=True, caption = 'Eosinophil, Raabin')
-        col5.image(cell_21, use_column_width=True, caption = 'Lymphocyte, Raabin')
-        col6.image(cell_22, use_column_width=True, caption = 'Monocyte, Raabin')
-        col7.image(cell_23, use_column_width=True, caption = 'Lymphocyte, Raabin')
+        col1.image(cell_17, use_column_width=True, caption = 'BAS, Raabin')
+        col2.image(cell_18, use_column_width=True, caption = 'EOS, Raabin')
+        col5.image(cell_21, use_column_width=True, caption = 'LT, Raabin')
+        col6.image(cell_22, use_column_width=True, caption = 'MON, Raabin')
+        col7.image(cell_23, use_column_width=True, caption = 'NEU, Raabin')
 #------------------------------------------------------------------------------------------------------------------------------------------    
 #Section Models     
 if selected == 'Modelisation':
