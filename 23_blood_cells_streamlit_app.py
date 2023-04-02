@@ -377,8 +377,8 @@ if selected == 'Modelisation':
 
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 # Necessary function and variables
-MODEL = "models/Best_model_ft_5th_layer.h5"
-
+RES_MODEL = "models/Best_model_ft_5th_layer.h5"
+VGG_MODEL = "model/vgg16_augmented_model.h5"
 IMG_SIZE = (360,360) 
 
 
@@ -394,8 +394,8 @@ CLASS_LABELS = ['Basophil',
 
 #function to load model
 @st.cache_resource
-def load_dl_model():
-    model = tf.keras.models.load_model(MODEL)
+def load_dl_model(model_choice):
+    model = tf.keras.models.load_model(model_choice)
     return model
 
 # Calculate f1 score
@@ -414,7 +414,7 @@ try:
 
     # Load the Keras model using custom_object_scope
     with tf.keras.utils.custom_object_scope(custom_objects):
-        model = load_dl_model()
+        model = load_dl_model(VGG_MODEL)
 
 except Exception as e:
     st.write(e)
