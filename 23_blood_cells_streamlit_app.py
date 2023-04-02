@@ -498,9 +498,9 @@ if selected == 'Prediction':
             with col2:
                 st.title("Confidence score:")
                 if confidence > .5:
-                    st.subheader(f":green[{confidence:.2f}]")
+                    st.subheader(f":green[{confidence:.2f * 100}%]")
                 else:
-                    st.subheader(f":red[{confidence:.2f}]")
+                    st.subheader(f":red[{confidence:.2f * 100}%]")
 
             
             
