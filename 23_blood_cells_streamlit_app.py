@@ -248,14 +248,12 @@ if selected == 'E.D.A.':
         col8.write("<p style='font-size:14px;text-align:center'>Platlet</p>", unsafe_allow_html=True)
    
 
-    line_1_IG = "IG,"
-    line_2 = "Munich"
     with st.container():
         col1, col2, col3, col4, col5, col6, col7, col8 = st.columns(8)
         col1.image(cell_01, use_column_width=True, caption = 'BAS, Munich')
         col2.image(cell_02, use_column_width=True, caption = 'EOS, Munich')
         col3.image(cell_03, use_column_width=True, caption = "ERY,\n Munich")
-        col4.image(cell_04, use_column_width=True, caption = [line_1_IG, line_2])
+        col4.image(cell_04, use_column_width=True, caption = 'IG,       Munich')
         col5.image(cell_05, use_column_width=True, caption = "LT,\n Munich")
         col6.image(cell_06, use_column_width=True, caption = 'MON, Munich')
         col7.image(cell_07, use_column_width=True, caption = 'NEU, Munich')
