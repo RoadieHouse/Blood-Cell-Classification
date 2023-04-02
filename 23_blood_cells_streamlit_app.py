@@ -460,7 +460,6 @@ if selected == 'Prediction':
     model_for_prediction = st.selectbox("Select a model", ["Select a model:", "Resnet50V2", "VGG16"]) 
     if model_for_prediction == "Select a model":
         st.info("A model has to be selected to make a prediction.")
-        st.empty()
     else:
         if model_for_prediction == "Resnet50V2":
 
@@ -494,11 +493,13 @@ if selected == 'Prediction':
 
             col1, col2 = st.columns(2)
             with col1:
-                st.subheader("Predicted class:")
-                st.write(f"{predicted_class}")
+                st.title("Predicted class:")
+                st.subheader(f"{predicted_class}")
             with col2:
-                st.subheader("Confidence score:")
-                st.write(f"{confidence:.2f}")
+                st.title("Confidence score:")
+                st.subheader(f"{confidence:.2f}")
+            
+            st.write("\n\n Additional information:")
 
             # Display additional information about the predicted class
             if predicted_class == "Eosinophil":
