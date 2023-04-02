@@ -459,9 +459,8 @@ if selected == 'Prediction':
     
     model_for_prediction = st.selectbox("Select a model", ["Select a model:", "Resnet50V2", "VGG16"]) 
     if model_for_prediction == "Select a model":
-        placeholder = st.empty()
-        placeholder.selectbox("Please select a model to continue", [])
         st.info("A model has to be selected to make a prediction.")
+        st.empty()
     else:
         if model_for_prediction == "Resnet50V2":
 
@@ -472,19 +471,12 @@ if selected == 'Prediction':
             with tf.keras.utils.custom_object_scope(custom_objects):
                 model = load_dl_model(RES_MODEL)
 
-        elif model_for_prediction == "VGG16":
+        if model_for_prediction == "VGG16":
             model = load_dl_model(VGG_MODEL)
 
-        else:
-            st.error("You have to choose a model to make a prediction")
-
-
-        l_col, m_col, r_col = st.columns(3)
+        l_col, r_col = st.columns(2)
         with l_col:
             image_file = st.file_uploader("Upload an image to classify:", type=["jpg", "jpeg", "png", "tiff"])
-
-        with m_col:  
-            st.subheader("OR")
 
         with r_col:
             selected_class = st.selectbox("Select a class:", ["Please make selection",*RES_CLASS_LABELS])
