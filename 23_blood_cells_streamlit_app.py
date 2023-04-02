@@ -246,14 +246,17 @@ if selected == 'E.D.A.':
         col6.write("<p style='font-size:14px;text-align:center'>Monocyte</p>", unsafe_allow_html=True)
         col7.write("<p style='font-size:14px;text-align:center'>Neutrophil</p>", unsafe_allow_html=True)
         col8.write("<p style='font-size:14px;text-align:center'>Platlet</p>", unsafe_allow_html=True)
-    
+   
+
+    line_1_IG = "IG,"
+    line_2 = "Munich"
     with st.container():
         col1, col2, col3, col4, col5, col6, col7, col8 = st.columns(8)
         col1.image(cell_01, use_column_width=True, caption = 'BAS, Munich')
         col2.image(cell_02, use_column_width=True, caption = 'EOS, Munich')
-        col3.image(cell_03, use_column_width=True, caption = "ERY,\n Munich", unsafe_allow_html=True)
-        col4.image(cell_04, use_column_width=True, caption = "IG,\n Munich", unsafe_allow_html=True)
-        col5.image(cell_05, use_column_width=True, caption = "LT,\n Munich", unsafe_allow_html=True)
+        col3.image(cell_03, use_column_width=True, caption = "ERY,\n Munich")
+        col4.image(cell_04, use_column_width=True, caption = line_1_IG, line_2)
+        col5.image(cell_05, use_column_width=True, caption = "LT,\n Munich")
         col6.image(cell_06, use_column_width=True, caption = 'MON, Munich')
         col7.image(cell_07, use_column_width=True, caption = 'NEU, Munich')
 
@@ -273,7 +276,7 @@ if selected == 'E.D.A.':
         col1, col2, col3, col4, col5, col6, col7, col8 = st.columns(8)
         col1.image(cell_17, use_column_width=True, caption = 'BAS, Raabin')
         col2.image(cell_18, use_column_width=True, caption = 'EOS, Raabin')
-        col5.image(cell_21, use_column_width=True, caption = "LT,\n Raabin", unsafe_allow_html=True)
+        col5.image(cell_21, use_column_width=True, caption = "LT,\n Raabin")
         col6.image(cell_22, use_column_width=True, caption = 'MON, Raabin')
         col7.image(cell_23, use_column_width=True, caption = 'NEU, Raabin')
 #------------------------------------------------------------------------------------------------------------------------------------------    
