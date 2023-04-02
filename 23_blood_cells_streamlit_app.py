@@ -460,7 +460,7 @@ if selected == 'Prediction':
     
     model_for_prediction = st.selectbox("Select a model", ["Resnet50V2", "VGG16"]) 
     
-    if model_for_prediction = "Resnet50V2":
+    if model_for_prediction == "Resnet50V2":
 
         #Create a dictionary mapping the function name to the function object
         custom_objects = {'f1': f1}
