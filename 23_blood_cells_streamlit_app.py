@@ -255,7 +255,7 @@ if selected == 'E.D.A.':
         col1.image(cell_01, use_column_width=True, caption = 'BAS, Munich')
         col2.image(cell_02, use_column_width=True, caption = 'EOS, Munich')
         col3.image(cell_03, use_column_width=True, caption = "ERY,\n Munich")
-        col4.image(cell_04, use_column_width=True, caption = line_1_IG, line_2)
+        col4.image(cell_04, use_column_width=True, caption = [line_1_IG, line_2])
         col5.image(cell_05, use_column_width=True, caption = "LT,\n Munich")
         col6.image(cell_06, use_column_width=True, caption = 'MON, Munich')
         col7.image(cell_07, use_column_width=True, caption = 'NEU, Munich')
