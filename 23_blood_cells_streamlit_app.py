@@ -479,7 +479,9 @@ if selected == 'Prediction':
     with l_col:
         image_file = st.file_uploader("Upload an image to classify:", type=["jpg", "jpeg", "png", "tiff"])
         
-    st.markdown("---")
+    # Inserting a vertical line using HTML syntax
+    st.markdown("""<div style="border-left: 2px solid #666; height: 500px; margin-top: 20px"></div>""", unsafe_allow_html=True)
+
     
     with r_col:
         selected_class = st.selectbox("Select a class:", ["Please make selection",*RES_CLASS_LABELS])
@@ -497,10 +499,10 @@ if selected == 'Prediction':
 
         col1, col2 = st.columns(2)
         with col1:
-            st.title("Predicted class:")
+            st.subheader("Predicted class:")
             st.write(f"{predicted_class}")
         with col2:
-            st.subheader("##Confidence score:")
+            st.subheader("Confidence score:")
             st.write(f"{confidence:.2f}")
 
         # Display additional information about the predicted class
