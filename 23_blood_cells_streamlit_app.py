@@ -238,14 +238,14 @@ if selected == 'E.D.A.':
     #st.subheader('Brightness')
     with st.container():
         col1, col2, col3, col4, col5, col6, col7, col8 = st.columns(8)
-        col1.write("<p style='font-size:14px'>Basophil</p>", unsafe_allow_html=True)
-        col2.write("<p style='font-size:14px'>Eosinophil</p>", unsafe_allow_html=True)
-        col3.write("<p style='font-size:14px'>Erythroblast</p>", unsafe_allow_html=True)
+        col1.write("<p style='font-size:14px;text-align:center'>Basophil</p>", unsafe_allow_html=True)
+        col2.write("<p style='font-size:14px;text-align:center'>Eosinophil</p>", unsafe_allow_html=True)
+        col3.write("<p style='font-size:14px;text-align:center'>Erythroblast</p>", unsafe_allow_html=True)
         col4.write("<p style='font-size:14px;text-align:center'>IG</p>", unsafe_allow_html=True)
-        col5.write("<p style='font-size:14px'>Lymphocyte</p>", unsafe_allow_html=True)
-        col6.write("<p style='font-size:14px'>Monocyte</p>", unsafe_allow_html=True)
-        col7.write("<p style='font-size:14px'>Neutrophil</p>", unsafe_allow_html=True)
-        col8.write("<p style='font-size:14px'>Platlet</p>", unsafe_allow_html=True)
+        col5.write("<p style='font-size:14px;text-align:center'>Lymphocyte</p>", unsafe_allow_html=True)
+        col6.write("<p style='font-size:14px;text-align:center'>Monocyte</p>", unsafe_allow_html=True)
+        col7.write("<p style='font-size:14px;text-align:center'>Neutrophil</p>", unsafe_allow_html=True)
+        col8.write("<p style='font-size:14px;text-align:center'>Platlet</p>", unsafe_allow_html=True)
     
     with st.container():
         col1, col2, col3, col4, col5, col6, col7, col8 = st.columns(8)
