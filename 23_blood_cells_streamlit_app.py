@@ -391,14 +391,16 @@ IMG_SIZE = (360,360)
 
 
 
-CLASS_LABELS = ['Basophil',
-                'Eosinophil',
-                'Erythroblast',
-                'Immature granulocytes',
-                'Lymphocyte',
-                'Monocyte',
-                'Neutrophil',
-                'Platelet']
+RES_CLASS_LABELS = ['Basophil',
+                    'Eosinophil',
+                    'Erythroblast',
+                    'Immature granulocytes',
+                    'Lymphocyte',
+                    'Monocyte',
+                    'Neutrophil',
+                    'Platelet']
+
+VGG_CLASS_LABELS = 
 
 #function to load model
 @st.cache_resource
