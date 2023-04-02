@@ -238,7 +238,7 @@ if selected == 'E.D.A.':
     st.subheader('Brightness')
     with st.container():
         col1, col2, col3, col4, col5, col6, col7, col8 = st.columns(8)
-        col1.write('Basophil')
+        col1.write("<p style='font-size:14px'>Basophil</p>", unsafe_allow_html=True)
         col2.write('Eosinophil')
         col3.write('Erythroblast')
         col4.write('IG')
