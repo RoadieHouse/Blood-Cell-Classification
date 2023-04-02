@@ -230,7 +230,7 @@ if selected == 'E.D.A.':
     st.subheader('UMAP')
     st.markdown("""
     The plot of the dimension reduction trough Uniform Manifold Approximation and Projection (UMAP) shows that the images tend to be clustered according to their originating 
-    dataset instead of the blood cell types. The only class that clearly visible are platelets which are only represented in one dataset.  
+    dataset instead of the blood cell types. The only class that is clearly visible are platelets which are only represented in one dataset.  
         """)
     
     # Load the HTML file
@@ -265,6 +265,17 @@ if selected == 'E.D.A.':
         col5.image(cell_05, use_column_width=True, caption = 'LT, Munich')
         col6.image(cell_06, use_column_width=True, caption = 'MON, Munich')
         col7.image(cell_07, use_column_width=True, caption = 'NEU, Munich')
+        
+    with st.container():
+        col1, col2, col3, col4, col5, col6, col7, col8 = st.columns(8)
+        col1.write("<p style='font-size:8px'>Basophil, Munich</p>", unsafe_allow_html=True)
+        col2.write("<p style='font-size:14px'>Eosinophil</p>", unsafe_allow_html=True)
+        col3.write("<p style='font-size:14px'>Erythroblast</p>", unsafe_allow_html=True)
+        col4.write("<p style='font-size:14px'>IG</p>", unsafe_allow_html=True)
+        col5.write("<p style='font-size:14px'>Lymphocyte</p>", unsafe_allow_html=True)
+        col6.write("<p style='font-size:14px'>Monocyte</p>", unsafe_allow_html=True)
+        col7.write("<p style='font-size:14px'>Neutrophil</p>", unsafe_allow_html=True)
+        col8.write("<p style='font-size:14px'>Platelet</p>", unsafe_allow_html=True)
 
 
     with st.container():
