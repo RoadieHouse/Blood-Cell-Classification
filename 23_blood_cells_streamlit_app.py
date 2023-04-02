@@ -413,7 +413,6 @@ try:
 
     # Load the Keras model using custom_object_scope
     with tf.keras.utils.custom_object_scope(custom_objects):
-        #@st.cache_data
         model = load_dl_model()
 
 except Exception as e:
@@ -421,7 +420,7 @@ except Exception as e:
 
 # Preprocess image
 def preprocess_image(image):
-    if image_file is not None:
+    if image is not None:
         image = image.resize(IMG_SIZE)
         image = tf.keras.preprocessing.image.img_to_array(image)
         image = tf.keras.applications.resnet_v2.preprocess_input(image)
@@ -429,13 +428,12 @@ def preprocess_image(image):
     
 # Function to make predictions
 def predict(image):
-    if image_file is not None:
+    if image is not None:
         image = preprocess_image(image)
         predictions = model.predict(tf.expand_dims(image, axis=0))[0]
         predicted_class = CLASS_LABELS[predictions.argmax()]
         confidence = predictions
-        shape = tf.expand_dims(image, axis=0).shape
-        return predicted_class, confidence, shape   
+        return predicted_class, confidence   
 
 # list all available images to make predicitions on (no images uploaded so far right?)   
 def list_images(directory, file_type):
@@ -467,7 +465,7 @@ if selected == 'Prediction':
             #image = ...
             
         st.image(image, caption="Uploaded Image", use_column_width=True)
-        predicted_class, confidence, shape = predict(image)
+        predicted_class, confidence = predict(image)
 
         col1, col2 = st.columns(2)
         with col1:
@@ -476,7 +474,6 @@ if selected == 'Prediction':
         with col2:
             st.markdown("##Confidence score:")
             st.write(f"{confidence}")
-            st.write(f"{shape}")
 
         # Display additional information about the predicted class
         if predicted_class == "Eosinophil":
