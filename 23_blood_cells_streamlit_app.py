@@ -227,11 +227,11 @@ if selected == 'E.D.A.':
     st.image(img_EDA_03, caption = 'Greyscale pixel distribution of the images per class')
     
     # Load the HTML file
-    html_file = open('UMAP_3D_scatter.html', 'r', encoding='utf-8')
-    source_code = html_file.read()
+    #html_file = open('UMAP_3D_scatter.html', 'r', encoding='utf-8')
+    #source_code = html_file.read()
 
     # Display the HTML file
-    components.html(source_code, height=1000, width=1000, scrolling=True)
+    #components.html(source_code, height=1000, width=1000, scrolling=True)
     
     st.subheader('Brightness')
     
