@@ -62,9 +62,9 @@ cell_17 = Image.open('images/Ra_Bas.jpg')
 cell_18 = Image.open('images/Ra_Eos.jpg')
 cell_19 = Image.open('images/x.png')
 cell_20 = Image.open('images/x.png')
-cell_21 = Image.open('images/B_LT.jpg')
-cell_22 = Image.open('images/B_Mon.jpg')
-cell_23 = Image.open('images/B_Neu.jpg')
+cell_21 = Image.open('images/Ra_LT.jpg')
+cell_22 = Image.open('images/Ra_Mon.jpg')
+cell_23 = Image.open('images/Ra_Neu.jpg')
 cell_24 = Image.open('images/x.png')
 #------------------------------------------------------------------------------------------------------------------------------------------
 # Title of the Page
