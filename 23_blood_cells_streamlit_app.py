@@ -376,7 +376,7 @@ if selected == 'Modelisation':
     st.subheader('VGG16 as base model')
     st.markdown(
         """
-        - **_Image augmentation:_** \u200A xxxxx
+        - **_Image augmentation:_** \u200A horizontal & vertical flips and random rotations
         - **_Layer architecture:_** \u200A one global average pooling layer, two large Dense layers followed by a slight dropout layer
         - F1-score: 86%
         """)
