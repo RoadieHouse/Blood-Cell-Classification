@@ -334,8 +334,8 @@ if selected == 'Modelisation':
     st.subheader('Simple model')
     st.markdown(
         """
-        - Image augmentation: horizontal & vertical flips, random rotations and center crop augmentation
-        - Layer architecture: global average pooling layer, no dropout layers, finishing with a flattened layer and a dense layer with
+        - **Image augmentation:** horizontal & vertical flips, random rotations and center crop augmentation
+        - **Layer architecture:** global average pooling layer, no dropout layers, finishing with a flattened layer and a dense layer with
         a high number of units (before the output layer)
         - F1-score: 91%
         """)
