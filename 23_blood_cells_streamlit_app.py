@@ -245,7 +245,7 @@ if selected == 'E.D.A.':
     some images from different blood cell types show high similaritys.
         """)    
     
-    with st.container( use_container_width=True):
+    with st.container():
         col1, col2, col3, col4, col5, col6, col7, col8 = st.columns(8)
         col1.write("<p style='font-size:14px;text-align:center'>Basophil</p>", unsafe_allow_html=True)
         col2.write("<p style='font-size:14px;text-align:center'>Eosinophil</p>", unsafe_allow_html=True)
