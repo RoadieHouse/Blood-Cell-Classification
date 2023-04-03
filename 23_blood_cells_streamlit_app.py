@@ -23,7 +23,7 @@ import base64
 import os
 import glob
 import matplotlib.image as mpimg
-
+import pathlib
 #------------------------------------------------------------------------------------------------------------------------------------------
 # Overall page configuration
 st.set_page_config(page_title="BCC", page_icon=":drop_of_blood:", layout="centered", initial_sidebar_state="auto", menu_items=None)
@@ -482,18 +482,25 @@ if selected == 'Prediction':
         with r_col:
             selected_class = st.selectbox("Select a class:", [*CLASS_LABELS])
             
-            directory = 'images/'
-            #directory += selected_class
+            directory = '/images/'
+            directory += selected_class
             #st.write(directory)
-            for root, dirs, files in os.walk(directory):
-                  for file in files:
-                         filename=os.path.join(root, file)
-                         filelist.append(filename)
-            st.write(filelist)
             #st.write(files)
             #selected_file = list_images(directory, selected_class)
             #image_file = directory + selected_class + '/' + selected_file
             #images/basophil/BAS_0016.tiff
+
+            pathdirectory = pathlib.Path('https://github.com/RoadieHouse/Blood-Cell-Classification/blob/main/')
+            pathdirectory += directory
+            def list_files():
+                files = []
+                for filename in os.listdir(pathdirectory):
+                    path = os.path.join(pathdirectory, filename)
+                    if os.path.isfile(path):
+                        files.append(filename)
+                return files
+
+            st.write(list_files())
 
         if image_file is not None:
             image = open_image(image_file)
