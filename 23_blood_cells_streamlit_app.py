@@ -471,8 +471,9 @@ if selected == 'Prediction':
         with r_col:
             selected_class = st.selectbox("Select a class:", ["Please make selection",*CLASS_LABELS])
             directory = 'images/'
-            selected_file = list_images(directory, selected_class)
+            selected_file = 'BAS_0016.tiff' #list_images(directory, selected_class)
             image_file = directory + selected_class + '/' + selected_file
+            #images/basophil/BAS_0016.tiff
 
         if image_file is not None:
             image = open_image(image_file)
