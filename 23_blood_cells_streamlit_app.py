@@ -480,7 +480,7 @@ if selected == 'Prediction':
             selected_class = st.selectbox("Select a class:", ["Please make selection",*CLASS_LABELS])
             
             directory = 'images/'
-            selected_file = list_images(directory, selected_class)
+            #selected_file = list_images(directory, selected_class)
             #image_file = directory + selected_class + '/' + selected_file
             #images/basophil/BAS_0016.tiff
 
@@ -508,7 +508,7 @@ if selected == 'Prediction':
                 model = load_dl_model(VGG_MODEL)
 
 
-            st.image(image, caption="Uploaded Image", width = 180)
+            #st.image(image, caption="Uploaded Image", width = 180)
             predicted_class, confidence = predict(image)
 
             col1, col2 = st.columns(2)
