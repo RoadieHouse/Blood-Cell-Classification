@@ -334,15 +334,15 @@ if selected == 'Modelisation':
     st.subheader('Simple model')
     st.markdown(
         """
-        - **Image augmentation:** horizontal & vertical flips, random rotations and center crop augmentation
-        - **Layer architecture:** global average pooling layer, no dropout layers, finishing with a flattened layer and a dense layer with
+        - **_Image augmentation:_** \u200A horizontal & vertical flips, random rotations and center crop augmentation
+        - **_Layer architecture:_** \u200A global average pooling layer, no dropout layers, finishing with a flattened layer and a dense layer with
         a high number of units (before the output layer)
         - F1-score: 91%
         """)
 
     st.markdown(
         """
-        With fine-tuning:
+        **With fine-tuning:**
         - the last (5th) Conv-block set to be trainable
         - this resulted in over 15 million trainable parameters compared to the initial 164.568 parameters
         - F1-score: 98%
@@ -467,7 +467,7 @@ if selected == 'Prediction':
 
         with r_col:
             selected_class = st.selectbox("Select a class:", ["Please make selection",*CLASS_LABELS])
-            directory = 'images/'
+            directory = 'images/basophil/'
             selected_file = list_images(directory, selected_class)
             image_file = directory + selected_class + '/' + selected_file
 
