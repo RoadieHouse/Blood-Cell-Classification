@@ -369,8 +369,8 @@ if selected == 'Modelisation':
     st.markdown(
         """
         With fine-tuning: 
-        - the last 3 layers were set to trainable 
-        - this resulted in close to six million trainable parameters compared to the initial 1.054.216 parameters.
+        - the last 5 layers were set to trainable 
+        - this resulted in close to 13 million trainable parameters compared to the initial 6.501.816 parameters.
         - F1-score: 96%
         """)
 
@@ -386,11 +386,9 @@ if selected == 'Modelisation':
 # Necessary function and variables
 RES_MODEL = "models/Best_model_ft_5th_layer.h5"
 VGG_MODEL = "models/vgg16_augmented_model.h5"
-IMG_SIZE = (360,360) 
+IMG_SIZE = (360,360)
 
-
-
-RES_CLASS_LABELS = ['Basophil',
+CLASS_LABELS = ['Basophil',
                     'Eosinophil',
                     'Erythroblast',
                     'Immature granulocytes',
@@ -398,15 +396,6 @@ RES_CLASS_LABELS = ['Basophil',
                     'Monocyte',
                     'Neutrophil',
                     'Platelet']
-
-VGG_CLASS_LABELS = ['Basophil',
-                    'Neutrophil',
-                    'Monocyte',
-                    'Ymphocyte',
-                    'Platelet',
-                    'Eosinophil',
-                    'Immature granulocytes',
-                    'Erythroblast']
 
 #function to load model
 @st.cache_resource
@@ -436,10 +425,7 @@ def predict(image):
     if image is not None:
         image = preprocess_image(image)
         predictions = model.predict(tf.expand_dims(image, axis=0))[0]
-        if model_for_prediction == "Resnet50V2":
-            predicted_class = RES_CLASS_LABELS[predictions.argmax()]
-        elif model_for_prediction == "VGG16":
-            predicted_class = VGG_CLASS_LABELS[predictions.argmax()]      
+        predicted_class = CLASS_LABELS[predictions.argmax()]    
         confidence = predictions.max()
         return predicted_class, confidence   
 
@@ -478,7 +464,7 @@ if selected == 'Prediction':
             image_file = st.file_uploader("Upload an image to classify:", type=["jpg", "jpeg", "png", "tiff"])
 
         with r_col:
-            selected_class = st.selectbox("Select a class:", ["Please make selection",*RES_CLASS_LABELS])
+            selected_class = st.selectbox("Select a class:", ["Please make selection",*CLASS_LABELS])
 
         if st.button("Predict"):    
             if image_file is not None:
@@ -488,7 +474,7 @@ if selected == 'Prediction':
                 #something with selected classes
                 #image = ...
 
-            st.image(image, caption="Uploaded Image", use_column_width=True)
+            st.image(image, caption="Uploaded Image", width = 180)
             predicted_class, confidence = predict(image)
 
             col1, col2 = st.columns(2)
