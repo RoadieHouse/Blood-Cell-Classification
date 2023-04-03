@@ -43,8 +43,8 @@ img_EDA_02 = open_image('images/RGB_dist.png')
 img_EDA_03 = open_image('images/Grey_dist.png')
 Analysis_01 = open_image('images/RESNET_ft_LossVal.png')
 Analysis_02 = open_image('images/RESNET_ft_f1.png')
-Analysis_04_mix = open_image('images/Analysis_04_mix.png')
-Analysis_05_mix = open_image('images/Analysis_05_mix.png')
+Analysis_04_mix = open_image('images/RESNET_noft_LossVal.png')
+Analysis_05_mix = open_image('images/RESNET_noft_f1.png')
 #Analysis_06_mix = open_image('images/Analysis_06_mix.png')
 Analysis_07_Amri = open_image('images/Analysis_07_Amri.png')
 Analysis_08_Amri = open_image('images/Analysis_08_Amri.png')
@@ -470,10 +470,10 @@ if selected == 'Prediction':
 
         with r_col:
             selected_class = st.selectbox("Select a class:", ["Please make selection",*CLASS_LABELS])
-            #directory = 'images/'
-            #selected_file = list_images(directory, selected_class)
-            #image_file = directory + selected_class + '/' + selected_file
-            image_file = 'images/basophil/BAS_0016.tiff'
+            directory = 'images/'
+            selected_file = '20190531_111246_0.jpg' #list_images(directory, selected_class)
+            image_file = directory + selected_class + '/' + selected_file
+            #images/basophil/BAS_0016.tiff
 
         if image_file is not None:
             image = open_image(image_file)
