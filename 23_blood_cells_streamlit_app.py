@@ -485,8 +485,8 @@ if selected == 'Prediction':
                 model = load_dl_model(VGG_MODEL)
 
 
-                st.image(image, caption="Uploaded Image", width = 180)
-                predicted_class, confidence = predict(image)
+            st.image(image, caption="Uploaded Image", width = 180)
+            predicted_class, confidence = predict(image)
 
             col1, col2 = st.columns(2)
             with col1:
