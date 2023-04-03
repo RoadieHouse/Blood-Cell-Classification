@@ -593,7 +593,7 @@ if selected == 'About':
     st.header('About')
     st.markdown('This machine learning project was part of Datascientest International Class at University of Paris La Sorbonne.')
     st.header('Contributors')
-    st.markdown('''Elias Zitterbarth  ([LinkedIn](https://www.linkedin.com/in/elias-zitterbarth) & [GitHub](https://github.com/RoadieHouse))<hr>Lilli Krizek  ([LinkedIn](https://www.linkedin.com/in/lilli-krizek-494768226) & [GitHub](https://github.com/Lillioona))<hr>Amritha Kalluvettukuzhiyil  ([LinkedIn](www.linkedin.com/in/amritha-k-742b36241) & [GitHub](https://github.com/AmrithaPrasneh))<hr>Daniela Hummel  ([GitHub](https://github.com/Poca-lan))''', unsafe_allow_html=True)
+    st.markdown('''Elias Zitterbarth  ([LinkedIn](https://www.linkedin.com/in/elias-zitterbarth) & [GitHub](https://github.com/RoadieHouse))<div style="border-top: 1px solid #ccc;"></div>Lilli Krizek  ([LinkedIn](https://www.linkedin.com/in/lilli-krizek-494768226) & [GitHub](https://github.com/Lillioona))<hr>Amritha Kalluvettukuzhiyil  ([LinkedIn](www.linkedin.com/in/amritha-k-742b36241) & [GitHub](https://github.com/AmrithaPrasneh))<hr>Daniela Hummel  ([GitHub](https://github.com/Poca-lan))''', unsafe_allow_html=True)
 
     st.subheader('Image References')
     st.markdown("""
