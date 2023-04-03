@@ -492,8 +492,7 @@ if selected == 'Prediction':
             FOLDER_PATH = (os.path.join(os.path.dirname(__file__), "images/basophil"))
             #all_files = [item for item in listdir('FOLDER_PATH') if os.path.isfile(join('FOLDER_PATH', item))]
 
-            #file = st.selectbox("Pick an image to test",images)
-            list(dict.items()) 
+            #file = st.selectbox("Pick an image to test",images) 
             st.write(list(listdir(FOLDER_PATH).items()))
       
             #image = Image.open(files[index])
