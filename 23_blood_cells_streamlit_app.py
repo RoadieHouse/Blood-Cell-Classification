@@ -491,8 +491,8 @@ if selected == 'Prediction':
 
             #st.write(listdir(FOLDER_PATH).items()[0])
             images = []
-            for i in range(10):
-                images.append(listdir(FOLDER_PATH).items()[i])
+            #for i in range(10):
+            images.append(listdir(FOLDER_PATH).items()[0])
             image_file = st.selectbox("Pick an image to test",images) 
 
 
