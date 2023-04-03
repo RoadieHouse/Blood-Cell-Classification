@@ -552,8 +552,8 @@ if selected == 'Perspectives':
          - in reality,there is a wider spectrum of blood cell types, regarding to subcategories of immature granulocytes and other early stages of blood cell.
          In this project the focus was to detect 8 different blood cells types.""")
 
-
-
+    st.image(hema, caption = 'Hematopoiesis')
+   
     st.markdown("""
         - the training data set should be as diverse and precise as possible to classify the blood cells.
 
