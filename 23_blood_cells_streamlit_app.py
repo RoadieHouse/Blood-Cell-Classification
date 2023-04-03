@@ -490,7 +490,7 @@ if selected == 'Prediction':
             #image_file = directory + selected_class + '/' + selected_file
             #image_file = 'images/basophil/BAS_0016.tiff'
 
-            st.write(pathlib.PurePath('/images/basophil')
+            st.write(pathlib.PurePath('./images')
             
 
         if image_file is not None:
