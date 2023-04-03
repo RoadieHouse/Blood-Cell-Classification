@@ -38,7 +38,7 @@ def open_image(img):
     return Image.open(img)
 
 img_home_01 = open_image('images/Blood_cell_examples.png')
-img_EDA_01 = open_image('images/Image_size.png')
+#img_EDA_01 = open_image('images/Image_size.png')
 img_EDA_02 = open_image('images/RGB_dist.png')
 img_EDA_03 = open_image('images/Grey_dist.png')
 Analysis_01 = open_image('images/RESNET_noft_LossVal.png')
