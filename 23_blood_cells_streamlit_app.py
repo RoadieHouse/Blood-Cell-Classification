@@ -493,7 +493,7 @@ if selected == 'Prediction':
             #all_files = [item for item in listdir('FOLDER_PATH') if os.path.isfile(join('FOLDER_PATH', item))]
 
             #file = st.selectbox("Pick an image to test",images) 
-            st.write(listdir(FOLDER_PATH).items()[0])
+            st.write(listdir(FOLDER_PATH)[0])
       
             #image = Image.open(files[index])
             #st.image(image, use_column_width=True)
