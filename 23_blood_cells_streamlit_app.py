@@ -490,10 +490,8 @@ if selected == 'Prediction':
             #all_files = [item for item in listdir('FOLDER_PATH') if os.path.isfile(join('FOLDER_PATH', item))]
 
             #st.write(listdir(FOLDER_PATH).items()[0])
-            images = []
-            #for i in range(10):
-            images.append(listdir(FOLDER_PATH).items()[0])
-            image_file = st.selectbox("Pick an image to test",images) 
+            images = listdir(FOLDER_PATH).items()[0]
+            image_file = images
 
 
         if image_file is not None:
