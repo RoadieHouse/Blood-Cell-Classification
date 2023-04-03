@@ -464,7 +464,8 @@ if selected == 'Prediction':
             image = open_image(image_file)
             st.image(image, caption="Uploaded Image", width = 180)
 
-        else image_file is None:
+        else:
+            image_file is None:
             st.info("Please upload an image to classify or choose one from the dropdown manu on the right")
             #something with selected classes
             #image = ...
