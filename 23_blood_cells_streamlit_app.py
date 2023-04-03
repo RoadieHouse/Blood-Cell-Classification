@@ -593,20 +593,13 @@ if selected == 'About':
     st.header('About')
     st.markdown('This machine learning project was part of Datascientest International Class at University of Paris La Sorbonne.')
     st.header('Contributors')
-    st.markdown('''Elias Zitterbarth  
-               [LinkedIn](https://www.linkedin.com/in/elias-zitterbarth)  
-               [GitHub](https://github.com/RoadieHouse)  
-               #-------------------------------------------------------------  
-               Lilli Krizek  
-               [LinkedIn](https://www.linkedin.com/in/lilli-krizek-494768226)  
-               [GitHub](https://github.com/Lillioona)  
-               #-------------------------------------------------------------  
-               Amritha Kalluvettukuzhiyil  
-               [LinkedIn](www.linkedin.com/in/amritha-k-742b36241)  
-               [GitHub](https://github.com/AmrithaPrasneh)  
-               #-------------------------------------------------------------  
-               Daniela Hummel  
-               [GitHub](https://github.com/Poca-lan)''')
+    st.markdown('''Elias Zitterbarth - [LinkedIn](https://www.linkedin.com/in/elias-zitterbarth) - [GitHub](https://github.com/RoadieHouse)  
+               '<hr style="border-top: 2px solid #ccc;">'  
+               Lilli Krizek - [LinkedIn](https://www.linkedin.com/in/lilli-krizek-494768226) - [GitHub](https://github.com/Lillioona)  
+               '<hr style="border-top: 2px solid #ccc;">'  
+               Amritha Kalluvettukuzhiyil - [LinkedIn](www.linkedin.com/in/amritha-k-742b36241) - [GitHub](https://github.com/AmrithaPrasneh)  
+               '<hr style="border-top: 2px solid #ccc;">'  
+               Daniela Hummel - [GitHub](https://github.com/Poca-lan)''')
 
     st.subheader('Image References')
     st.markdown("""
