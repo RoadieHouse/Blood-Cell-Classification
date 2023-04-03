@@ -502,7 +502,7 @@ if selected == 'Prediction':
                     #st.markdown(f"<p style=color: green; font-size: 20px;>{conf_percent}%</span>", unsafe_allow_html=True)
                     st.subheader(f":green[{conf_percent:.2f}%]")
                 else:
-                    st.subheader(f":red[{conf_percent}%]")
+                    st.subheader(f":red[{conf_percent:.2f}%]")
 
             
             
