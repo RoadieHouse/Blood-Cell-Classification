@@ -45,6 +45,7 @@ Analysis_01 = open_image('images/RESNET_ft_LossVal.png')
 Analysis_02 = open_image('images/RESNET_ft_f1.png')
 Analysis_04_mix = open_image('images/RESNET_noft_LossVal.png')
 Analysis_05_mix = open_image('images/RESNET_noft_F1.png')
+Analysis_06_ft_res = open_image('images/RESNET_confusion_matrix.png')
 #Analysis_06_mix = open_image('images/Analysis_06_mix.png')
 Analysis_07_Amri = open_image('images/Analysis_07_Amri.png')
 Analysis_08_Amri = open_image('images/Analysis_08_Amri.png')
@@ -357,6 +358,8 @@ if selected == 'Modelisation':
 
     col1.image(Analysis_01, use_column_width=True, caption = 'ResNet50V2 Loss')
     col2.image(Analysis_02, use_column_width=True, caption = 'ResNet50V2 Accuracy')
+    
+    st.image(Analysis_06_ft_res, caption = 'ResNet50V2 Confusion Matrix')
 
     st.subheader('Mixed inputs')
     st.markdown(
