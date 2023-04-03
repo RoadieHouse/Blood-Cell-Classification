@@ -490,9 +490,8 @@ if selected == 'Prediction':
             #image_file = directory + selected_class + '/' + selected_file
             #image_file = 'images/basophil/BAS_0016.tiff'
 
-            #pathdirectory = pathlib.Path('https://github.com/RoadieHouse/Blood-Cell-Classification/blob/main/images/basophil')
-            filename = st.file_picker("Pick a file", folder="/Volumes/WDElements/Amritha/XXX/basophil") 
-            st.write(filename)
+            pathdirectory = pathlib.Path('https://github.com/RoadieHouse/Blood-Cell-Classification/blob/main/images/basophil')
+            
 
         if image_file is not None:
             image = open_image(image_file)
