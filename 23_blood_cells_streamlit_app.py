@@ -343,8 +343,8 @@ if selected == 'Modelisation':
     st.markdown(
         """
         **With fine-tuning:**
-        - the last (5th) Conv-block set to be trainable
-        - this resulted in over 15 million trainable parameters compared to the initial 164.568 parameters
+        - The last (5th) Conv-block set to be trainable
+        - This resulted in over 15 million trainable parameters compared to the initial 164.568 parameters
         - F1-score: 98%
         """)
 
