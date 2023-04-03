@@ -490,7 +490,7 @@ if selected == 'Prediction':
             #image_file = 'images/basophil/BAS_0016.tiff'
             
             FOLDER_PATH = (os.path.join(os.path.dirname(__file__), "images/basophil"))
-            all_files = [item for item in listdir('FOLDER_PATH') if isfile(join('FOLDER_PATH', item))]
+            all_files = [item for item in listdir('FOLDER_PATH') if os.path.isfile(join('FOLDER_PATH', item))]
 
             #file = st.selectbox("Pick an image to test",images)
             st.write(all_files)
