@@ -343,8 +343,8 @@ if selected == 'Modelisation':
         - F1-score: 91%
         """)
     col1, col2 = st.columns(2)
-    col1.image(Analysis_04_mix, use_column_width=True, caption = 'Mixed Inputs Loss')
-    col2.image(Analysis_05_mix, use_column_width=True, caption = 'Mixed Inputs Accuracy')
+    col1.image(Analysis_04_mix, use_column_width=True, caption = 'ResNet50V2 Loss')
+    col2.image(Analysis_05_mix, use_column_width=True, caption = 'ResNet50V2 Accuracy')
 
     st.markdown(
         """
@@ -356,8 +356,8 @@ if selected == 'Modelisation':
 
     col1, col2 = st.columns(2)
 
-    col1.image(Analysis_01, use_column_width=True, caption = 'ResNet50V2 Loss')
-    col2.image(Analysis_02, use_column_width=True, caption = 'ResNet50V2 Accuracy')
+    col1.image(Analysis_01, use_column_width=True, caption = 'ResNet50V2 with fine tuning Loss')
+    col2.image(Analysis_02, use_column_width=True, caption = 'ResNet50V2 with fine tuning Accuracy')
     
     st.image(Analysis_06_ft_res, caption = 'ResNet50V2 Confusion Matrix')
 
