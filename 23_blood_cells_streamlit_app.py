@@ -444,7 +444,7 @@ def predict(image):
 def list_images(directory, file_type):
     directory += file_type
     st.write(directory)
-    files = listdir('./' + directory + '/')
+    files = listdir(directory)
     st.write(files)
     #files[0] = "Select from list"
     #images = []
