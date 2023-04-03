@@ -443,22 +443,25 @@ def predict(image):
 
 # list all available images to make predicitions on (no images uploaded so far right?)
 def list_images(directory, file_type):
-    directory += file_type
-    st.write(directory)
-    files = listdir(directory)
-    st.write(files)
-    #files[0] = "Select from list"
-    #images = []
-    #for img_path in glob.glob('./' + directory + '/'):
-        #images.append(mpimg.imread(img_path))
-    #file = st.selectbox("Pick an image to test",'BAS_0016.tiff')
-    
-    for root, dirs, files in os.walk('./'):
-      for file in files:
-             filename=os.path.join(root, file)
-             filelist.append(filename)
-    st.write(filelist)
-    return file
+    if(file_type != 'Please make selection'):
+        directory += file_type
+        st.write(directory)
+        files = listdir(directory)
+        st.write(files)
+        #files[0] = "Select from list"
+        #images = []
+        #for img_path in glob.glob('./' + directory + '/'):
+            #images.append(mpimg.imread(img_path))
+        #file = st.selectbox("Pick an image to test",'BAS_0016.tiff')
+
+        for root, dirs, files in os.walk('./'):
+          for file in files:
+                 filename=os.path.join(root, file)
+                 filelist.append(filename)
+        st.write(filelist)
+        return file
+    else:
+        return Null
 
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 if selected == 'Prediction':
