@@ -490,8 +490,8 @@ if selected == 'Prediction':
             #image_file = directory + selected_class + '/' + selected_file
             #images/basophil/BAS_0016.tiff
 
-            pathdirectory = pathlib.Path('https://github.com/RoadieHouse/Blood-Cell-Classification/blob/main/')
-            pathdirectory += directory
+            pathdirectory = pathlib.Path('https://github.com/RoadieHouse/Blood-Cell-Classification/blob/main/images/basophil')
+            
             def list_files():
                 files = []
                 for filename in os.listdir(pathdirectory):
