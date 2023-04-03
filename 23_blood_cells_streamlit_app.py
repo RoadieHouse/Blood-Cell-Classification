@@ -494,8 +494,8 @@ if selected == 'Prediction':
             for img in images:
                 images.append(img)
 
-            file = st.selectbox("Pick an image to test",images)
-            st.write(imges)
+            #file = st.selectbox("Pick an image to test",images)
+            st.write(images)
       
             #image = Image.open(files[index])
             #st.image(image, use_column_width=True)
