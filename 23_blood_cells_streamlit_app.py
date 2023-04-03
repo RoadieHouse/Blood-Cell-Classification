@@ -571,10 +571,8 @@ if selected == 'About':
     st.markdown('This machine learning project was part of Datascientest International Class at University of Paris La Sorbonne.')
     st.header('Contributors')
     st.write('Amritha Kalluvettukuzhiyil  \n Elias Zitterbarth  \n Daniela Hummel  \n Lilli Krizek')
-    st.subheader(‚Image References‘)
+    st.subheader('Image References‘)
     st.markdown("""
     - https://en.wikipedia.org/wiki/Haematopoiesis
-
-
     - https://tenor.com/de/view/red-blood-cells-national-geographic-arteries-blood-flow-world-heart-day-gif-18613531
      """)
