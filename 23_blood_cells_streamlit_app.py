@@ -371,16 +371,15 @@ if selected == 'Modelisation':
     st.subheader('VGG16 as base model')
     st.markdown(
         """
-        Simple model:
-        - Image: architecture:
-        - Layer architecture: global average pooling layer, two large Dense layers followed by a slight dropout layer
+        - **_Image augmentation:_** \u200A xxxxx
+        - **_Layer architecture:_** \u200A global average pooling layer, two large Dense layers followed by a slight dropout layer
         - F1-score: 86%
         """)
     st.markdown(
         """
-        With fine-tuning:
-        - the last 5 layers were set to trainable
-        - this resulted in close to 13 million trainable parameters compared to the initial 6.501.816 parameters.
+        **With fine-tuning:**
+        - The last 5 layers were set to trainable
+        - This resulted in close to 13 million trainable parameters compared to the initial 6.501.816 parameters.
         - F1-score: 96%
         """)
 
