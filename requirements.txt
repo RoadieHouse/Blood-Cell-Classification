@@ -1,5 +1,6 @@
 numpy==1.23.5
 Pillow==9.4.0
+streamlit
 streamlit_option_menu==0.3.2
 tensorflow
 tensorflow_intel
