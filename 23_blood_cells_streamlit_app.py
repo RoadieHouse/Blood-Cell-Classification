@@ -490,15 +490,9 @@ if selected == 'Prediction':
             #image_file = directory + selected_class + '/' + selected_file
             #image_file = 'images/basophil/BAS_0016.tiff'
             
-            images = glob.glob("/images/basophil/")
-            st.write(images)
-            if st.button('Next'):
-                index+=1
-
-
-            if st.button('Prev'):
-                if index > 0 :
-                    index = index -1
+            file_pattern = st.text_input('Glob file pattern to match', 'images/basophil/*.png')
+            image_list = glob.glob(file_pattern)
+            st.write(f"Found {len(image_list)} images")
 
            
             
