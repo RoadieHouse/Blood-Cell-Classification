@@ -96,7 +96,7 @@ if selected == 'Introduction':
     file_.close()
 
     st.markdown(
-    f'<div style="text-align:center;"><img src="data:image/gif;base64,{data_url}" alt="cat gif"></div>',
+    f'<div style="text-align:center;"><img src="data:image/gif;base64,{data_url}" alt="cat gif">¹</div>',
     unsafe_allow_html=True,
     )
 
@@ -577,7 +577,7 @@ if selected == 'Perspectives':
          cells) compared to the 8 different blood cells types which were the focus of this project.
          """)
 
-    st.image(hema, caption = 'Hematopoiesis')
+    st.image(hema, caption = 'Hematopoiesis²')
    
     st.markdown("""
         - To obtain the best possible outcome and a high level of generalizability, training data sets should be as diverse and precise as possible blood cell classficication (or any kind of image classification).
@@ -607,7 +607,7 @@ if selected == 'About':
     st.subheader('Image References')
     st.markdown("""<div style="color:#696969">
     <ul>
-        <li>https://tenor.com/de/view/red-blood-cells-national-geographic-arteries-blood-flow-world-heart-day-gif-18613531
-        <li>https://en.wikipedia.org/wiki/Haematopoiesis
+        <li>¹[https://tenor.com/de/view/red-blood-cells-national-geographic-arteries-blood-flow-world-heart-day-gif-18613531](https://tenor.com/de/view/red-blood-cells-national-geographic-arteries-blood-flow-world-heart-day-gif-18613531)
+        <li>²[https://en.wikipedia.org/wiki/Haematopoiesis](https://en.wikipedia.org/wiki/Haematopoiesis)
     </ul>
     </div>""",unsafe_allow_html=True)
