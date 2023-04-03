@@ -599,7 +599,7 @@ if selected == 'About':
                '<hr style="border-top: 2px solid #ccc;">'  
                Amritha Kalluvettukuzhiyil - [LinkedIn](www.linkedin.com/in/amritha-k-742b36241) - [GitHub](https://github.com/AmrithaPrasneh)  
                '<hr style="border-top: 2px solid #ccc;">'  
-               Daniela Hummel - [GitHub](https://github.com/Poca-lan)''')
+               Daniela Hummel - [GitHub](https://github.com/Poca-lan)''', unsafe_allow_html=True)
 
     st.subheader('Image References')
     st.markdown("""
