@@ -33,7 +33,7 @@ st.set_page_config(page_title="BCC", page_icon=":drop_of_blood:", layout="center
 
 #------------------------------------------------------------------------------------------------------------------------------------------
 # open images to display (maybe add them to corresponding section for clarity/structure
-st.cache_data
+@st.cache_data
 def open_image(img):
     return Image.open(img)
 
