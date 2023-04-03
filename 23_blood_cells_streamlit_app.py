@@ -341,6 +341,9 @@ if selected == 'Modelisation':
         a high number of units (before the output layer)
         - F1-score: 91%
         """)
+    col1, col2 = st.columns(2)
+    col1.image(Analysis_04_mix, use_column_width=True, caption = 'Mixed Inputs Loss')
+    col2.image(Analysis_05_mix, use_column_width=True, caption = 'Mixed Inputs Accuracy')
 
     st.markdown(
         """
@@ -363,9 +366,7 @@ if selected == 'Modelisation':
         - F1-score: 97.3%
         """)
 
-    col1, col2 = st.columns(2)
-    col1.image(Analysis_04_mix, use_column_width=True, caption = 'Mixed Inputs Loss')
-    col2.image(Analysis_05_mix, use_column_width=True, caption = 'Mixed Inputs Accuracy')
+  
 
     # st.image(Analysis_06_mix, caption = 'Confusion Matrix')
 
