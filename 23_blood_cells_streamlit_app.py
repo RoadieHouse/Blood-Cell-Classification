@@ -450,8 +450,9 @@ def list_images(directory, file_type):
         #st.write(files)
         #files[0] = "Select from list"
         #images = []
-        for img_path in glob.glob('./blob/main/' + directory + '/'):
+        for img_path in glob.glob(directory + '/*'):
             images.append(mpimg.imread(img_path))
+
         file = st.selectbox("Pick an image to test",images)
 
  
