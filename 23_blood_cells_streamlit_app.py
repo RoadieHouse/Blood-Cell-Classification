@@ -73,7 +73,7 @@ cell_21 = open_image('images/Ra_LT.jpg')
 cell_22 = open_image('images/Ra_Mon.jpg')
 cell_23 = open_image('images/Ra_Neu.jpg')
 cell_24 = open_image('images/x.png')
-hema = open_image('Hematopoiesis.jpg')
+hema = open_image('images/Hematopoiesis.jpg')
 #------------------------------------------------------------------------------------------------------------------------------------------
 # Title of the Page
 Header = st.container()
