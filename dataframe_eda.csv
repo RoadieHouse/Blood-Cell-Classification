@@ -1,4 +1,4 @@
-,name,label,origin,dim,height,width,img_lum,img_bright
+,Name,Label,Origin,Shape,Height,Width,Luminosity,Brightness
 18838,BA_454831.jpg,Basophil,Barcelona,"(363, 360, 3)",363,360,195.5301774691358,194.36623456790124
 41953,20190526_170409_0.jpg,Basophil,Raabin,"(575, 575, 3)",575,575,125.95773148148149,120.09626543209876
 19259,BA_765277.jpg,Basophil,Barcelona,"(363, 360, 3)",363,360,183.38440586419753,181.14390432098764
