@@ -459,14 +459,14 @@ if selected == 'Prediction':
         if model_for_prediction == "VGG16":
             model = load_dl_model(VGG_MODEL)
 
-        l_col, m_col, r_col = st.meta_columns(2)
+        l_col, r_col = st.columns(2)
         with l_col:
             image_file = st.file_uploader("Upload an image to classify:", type=["jpg", "jpeg", "png", "tiff"])
 
         with r_col:
             selected_class = st.selectbox("Select a class:", ["Please make selection",*CLASS_LABELS])
             
-        with m_col:
+        
         if st.button("Predict"):    
             if image_file is not None:
                 image = Image.open(image_file)
