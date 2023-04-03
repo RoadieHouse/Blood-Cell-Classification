@@ -407,7 +407,7 @@ CLASS_LABELS = ['Basophil',
 def load_dl_model(model_choice):
     if not os.path.isfile(model_choice):
         urllib.request.urlretrieve(f"https://github.com/RoadieHouse/Blood-Cell-Classification/blob/main/{model_choice}", model_choice[:7])
-    return tensorflow.keras.models.load_model(model_choice)
+    return tf.keras.models.load_model(model_choice)
 
 # Calculate f1 score
 def f1(y_true, y_pred):
