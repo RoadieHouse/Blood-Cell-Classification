@@ -480,18 +480,9 @@ if selected == 'Prediction':
             
             directory = 'images/'
             directory += selected_class
-            #st.write(directory)
-            #st.write(files)
-            #selected_file = list_images(directory, selected_class)
-            #image_file = directory + selected_class + '/' + selected_file
-            #image_file = 'images/basophil/BAS_0016.tiff'
-            
-            FOLDER_PATH = (os.path.join(os.path.dirname(__file__), "images/basophil"))
-            #all_files = [item for item in listdir('FOLDER_PATH') if os.path.isfile(join('FOLDER_PATH', item))]
+            FOLDER_PATH = (os.path.join(os.path.dirname(__file__), "images/basophil")
 
-            #st.write(listdir(FOLDER_PATH).items()[0])
-            images = listdir(FOLDER_PATH).items()[0]
-            image_file = images
+            st.write(listdir(FOLDER_PATH).items())
 
 
         if image_file is not None:
