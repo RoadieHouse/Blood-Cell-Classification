@@ -205,9 +205,9 @@ if selected == 'E.D.A.':
                 """)
 
    # Create scatterplot with Plotly
-    fig = px.scatter(df, x='width', y='height', color='origin', size='height', symbol='origin',
-                     hover_data={'shape': True, 'luminosity' : True, 'lrightness' : True},
-                     hover_name="origin")
+    fig = px.scatter(df, x='Width', y='Height', color='Origin', size='Height', symbol='Origin',
+                     hover_data={'Shape': True, 'Luminosity' : True, 'Brightness' : True},
+                     hover_name="Origin")
 
     # Set axis labels and title
     fig.update_xaxes(title='Width', showgrid=True)
