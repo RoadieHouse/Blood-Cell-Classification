@@ -447,15 +447,6 @@ def list_images(directory, file_type):
         st.write(directory)
         files = listdir('https://github.com/RoadieHouse/Blood-Cell-Classification/blob/main/' + directory)
         st.write(files)
-        #files[0] = "Select from list"
-        #images = []
-        #for img_path in glob.glob(directory + '/*'):
-            #images.append(mpimg.imread(img_path))
-
-        #file = st.selectbox("Pick an image to test",images)
-
- 
-        #st.write(file)
         return file
     else:
         return Null
@@ -483,10 +474,7 @@ if selected == 'Prediction':
             FOLDER_PATH = os.path.join(os.path.dirname(__file__), "images/basophil")
 
             dict = listdir(FOLDER_PATH)
-            images = []
-            for i in range(10):
-                images.append(dict[i])
-            st.write(images)   
+            st.write(dict)   
 
         if image_file is not None:
             image = open_image(image_file)
