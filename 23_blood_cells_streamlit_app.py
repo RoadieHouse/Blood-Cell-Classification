@@ -196,7 +196,7 @@ if selected == 'E.D.A.':
     with st.expander("Show dataset:"):
         st.dataframe(df)
 
-    st.subheader('Distribution of the image sizes')
+    st.subheader('Image sizes')
     st.markdown("""
     The image size varied between the different datasets, as displayed in the following scatter plot. They were all resized to 360x360 for the
                 continuous process.
@@ -325,10 +325,10 @@ if selected == 'Modelisation':
             """
         )
     st.subheader('ResNet50V2 as base model')
+    st.subheader('Simple model')
 
     st.markdown(
         """
-        Simple model:
         - Image augmentation: horizontal & vertical flips, random rotations and center crop augmentation
         - Layer architecture: global average pooling layer, no dropout layers, finishing with a flattened layer and a dense layer with
         a high number of units (before the output layer)
