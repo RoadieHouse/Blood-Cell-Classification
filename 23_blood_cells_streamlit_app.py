@@ -451,7 +451,13 @@ def list_images(directory, file_type):
     #images = []
     #for img_path in glob.glob('./' + directory + '/'):
         #images.append(mpimg.imread(img_path))
-    file = st.selectbox("Pick an image to test",'BAS_0016.tiff')
+    #file = st.selectbox("Pick an image to test",'BAS_0016.tiff')
+    
+    for root, dirs, files in os.walk(directory):
+      for file in files:
+             filename=os.path.join(root, file)
+             filelist.append(filename)
+    st.write(filelist)
     return file
 
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
