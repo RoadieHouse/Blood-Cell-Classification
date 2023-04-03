@@ -372,7 +372,7 @@ if selected == 'Modelisation':
     st.markdown(
         """
         - **_Image augmentation:_** \u200A xxxxx
-        - **_Layer architecture:_** \u200A global average pooling layer, two large Dense layers followed by a slight dropout layer
+        - **_Layer architecture:_** \u200A one global average pooling layer, two large Dense layers followed by a slight dropout layer
         - F1-score: 86%
         """)
     st.markdown(
