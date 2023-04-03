@@ -450,7 +450,7 @@ def list_images(directory, file_type):
     #images = []
     #for img_path in glob.glob('./' + directory + '/'):
         #images.append(mpimg.imread(img_path))
-    file = st.selectbox("Pick an image to test","BAS_0016.tiff")
+    file = st.selectbox("Pick an image to test",'BAS_0016.tiff')
     return file
 
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
