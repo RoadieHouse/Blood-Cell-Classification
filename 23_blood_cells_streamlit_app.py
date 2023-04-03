@@ -20,7 +20,7 @@ from tensorflow.keras.models import load_model
 import urllib.request
 import requests
 import base64
-import os
+#import os
 import glob
 import matplotlib.image as mpimg
 
@@ -445,7 +445,7 @@ def predict(image):
 def list_images(directory, file_type):
     directory += file_type
     st.write(directory)
-    files = os.listdir(directory)
+    files = listdir(directory)
     st.write(files)
     #files[0] = "Select from list"
     #images = []
@@ -453,7 +453,7 @@ def list_images(directory, file_type):
         #images.append(mpimg.imread(img_path))
     #file = st.selectbox("Pick an image to test",'BAS_0016.tiff')
     
-    for root, dirs, files in os.walk(directory):
+    for root, dirs, files in os.walk('./'):
       for file in files:
              filename=os.path.join(root, file)
              filelist.append(filename)
