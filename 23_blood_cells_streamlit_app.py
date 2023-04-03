@@ -481,7 +481,7 @@ if selected == 'Prediction':
         with r_col:
             selected_class = st.selectbox("Select a class:", [*CLASS_LABELS])
             
-            directory = '/images/'
+            directory = 'images/'
             directory += selected_class
             #st.write(directory)
             #st.write(files)
@@ -489,9 +489,7 @@ if selected == 'Prediction':
             #image_file = directory + selected_class + '/' + selected_file
             #image_file = 'images/basophil/BAS_0016.tiff'
             
-            file_pattern = st.text_input('Glob file pattern to match', 'images/basophil/*.png')
-            image_list = glob.glob(file_pattern)
-            st.write(f"Found {len(image_list)} images")
+            file = st.selectbox("Pick an image to test",listdir(os.path.join(os.path.dirname(__file__), "directory")))
 
            
             
