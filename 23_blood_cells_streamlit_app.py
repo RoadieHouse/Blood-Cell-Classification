@@ -475,21 +475,21 @@ if selected == 'Prediction':
                 #something with selected classes
                 #image = ...
 
-        st.image(image, caption="Uploaded Image", width = 180)
-        predicted_class, confidence = predict(image)
+            st.image(image, caption="Uploaded Image", width = 180)
+            predicted_class, confidence = predict(image)
 
-        col1, col2 = st.columns(2)
-        with col1:
-            st.title("Predicted class:")
-            st.subheader(f"{predicted_class}")
-        with col2:
-            st.title("Confidence score:")
-            conf_percent = confidence * 100
-            if conf_percent > 50:
-                #st.markdown(f"<p style=color: green; font-size: 20px;>{conf_percent}%</span>", unsafe_allow_html=True)
-                st.subheader(f":green[{conf_percent:.2f}%]")
-            else:
-                st.subheader(f":red[{conf_percent:.2f}%]")
+            col1, col2 = st.columns(2)
+            with col1:
+                st.title("Predicted class:")
+                st.subheader(f"{predicted_class}")
+            with col2:
+                st.title("Confidence score:")
+                conf_percent = confidence * 100
+                if conf_percent > 50:
+                    #st.markdown(f"<p style=color: green; font-size: 20px;>{conf_percent}%</span>", unsafe_allow_html=True)
+                    st.subheader(f":green[{conf_percent:.2f}%]")
+                else:
+                    st.subheader(f":red[{conf_percent:.2f}%]")
 
             
             
