@@ -491,7 +491,7 @@ if selected == 'Prediction':
             #image_file = 'images/basophil/BAS_0016.tiff'
             
             
-            st.write(os.path.join(os.path.dirname((__file__)), "images/basophil"))
+            st.write(listdir(os.path.join(os.path.dirname((__file__)), "images/basophil")))
            
             
 
