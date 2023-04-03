@@ -489,8 +489,11 @@ if selected == 'Prediction':
             #selected_file = list_images(directory, selected_class)
             #image_file = directory + selected_class + '/' + selected_file
             #image_file = 'images/basophil/BAS_0016.tiff'
+            
+            p = pathlib.Path('.')
+            st.write(p.glob('**/*.*'))
 
-            st.write(pathlib.PurePath('images/basophil'))
+           
             
 
         if image_file is not None:
