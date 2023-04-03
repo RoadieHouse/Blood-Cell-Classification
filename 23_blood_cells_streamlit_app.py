@@ -325,8 +325,12 @@ if selected == 'Modelisation':
             """
         )
     st.subheader('ResNet50V2 as base model')
+    st.markdown(
+        """
+        The following two models have been build on a ResNet50V2 base model.
+        """)
+    
     st.subheader('Simple model')
-
     st.markdown(
         """
         - Image augmentation: horizontal & vertical flips, random rotations and center crop augmentation
@@ -348,12 +352,11 @@ if selected == 'Modelisation':
     col1.image(Analysis_01, use_column_width=True, caption = 'ResNet50V2 Loss')
     col2.image(Analysis_02, use_column_width=True, caption = 'ResNet50V2 Accuracy')
 
+    st.subheader('Mixed inputs')
     st.markdown(
         """
-        Mixed inputs:
-        - The features luminosity and brightness were used as numerical input
-        - next to the image arrays
-        - same architecture and fine-tuning as the previous model
+        - Same architecture and fine-tuning as the previous model
+        - The features luminosity and brightness were used as additional numerical input next to the image arrays
         - F1-score: 97.3%
         """)
 
