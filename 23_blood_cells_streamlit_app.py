@@ -210,7 +210,7 @@ if selected == 'E.D.A.':
                       plot_bgcolor="#0e1117", paper_bgcolor="#0e1117", font_color="white")
 
     # Display plot in Streamlit
-    st.plotly_chart(fig)
+    st.plotly_chart(fig, use_container_width=True)
     
     st.subheader('Brightness')
     st.markdown("""
