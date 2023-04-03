@@ -442,7 +442,7 @@ def predict(image):
 def list_images(directory, file_type):
     directory += file_type
     files = listdir(directory)
-    files[0] = "Select from list"
+    #files[0] = "Select from list"
     file = st.selectbox("Pick an image to test",files)
     return file
 
@@ -463,6 +463,9 @@ if selected == 'Prediction':
 
         with r_col:
             selected_class = st.selectbox("Select a class:", ["Please make selection",*CLASS_LABELS])
+            directory = 'images/basophil/'
+            selected_file = list_images(directory, file_type)
+            image_file = directory + selected_class + '/' + selected_file
 
         if image_file is not None:
             image = open_image(image_file)
