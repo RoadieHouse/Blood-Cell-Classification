@@ -21,6 +21,7 @@ import urllib.request
 import requests
 import base64
 import os
+import glob
 
 #------------------------------------------------------------------------------------------------------------------------------------------
 # Overall page configuration
@@ -441,9 +442,12 @@ def predict(image):
 # list all available images to make predicitions on (no images uploaded so far right?)
 def list_images(directory, file_type):
     directory += file_type
-    files = listdir(directory)
+    #files = listdir(directory)
     #files[0] = "Select from list"
-    file = st.selectbox("Pick an image to test",files)
+    images = []
+    for img_path in glob.glob('./directory'):
+        images.append(mpimg.imread(img_path))
+    file = st.selectbox("Pick an image to test",images)
     return file
 
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
