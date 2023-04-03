@@ -443,12 +443,13 @@ def predict(image):
 def list_images(directory, file_type):
     directory += file_type
     st.write(directory)
-    #files = listdir(directory)
+    files = listdir('./' + directory + '/')
+    st.write(files)
     #files[0] = "Select from list"
-    images = []
-    for img_path in glob.glob('./' + directory + '/'):
-        images.append(mpimg.imread(img_path))
-    file = st.selectbox("Pick an image to test",images)
+    #images = []
+    #for img_path in glob.glob('./' + directory + '/'):
+        #images.append(mpimg.imread(img_path))
+    file = st.selectbox("Pick an image to test",files)
     return file
 
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
