@@ -447,6 +447,15 @@ def list_images(directory, file_type):
         st.write(directory)
         files = listdir('https://github.com/RoadieHouse/Blood-Cell-Classification/blob/main/' + directory)
         st.write(files)
+        #files[0] = "Select from list"
+        #images = []
+        #for img_path in glob.glob(directory + '/*'):
+            #images.append(mpimg.imread(img_path))
+
+        #file = st.selectbox("Pick an image to test",images)
+
+ 
+        #st.write(file)
         return file
     else:
         return Null
@@ -471,10 +480,21 @@ if selected == 'Prediction':
             
             directory = 'images/'
             directory += selected_class
-            FOLDER_PATH = os.path.join(os.path.dirname(__file__), "images/basophil")
+            #st.write(directory)
+            #st.write(files)
+            #selected_file = list_images(directory, selected_class)
+            #image_file = directory + selected_class + '/' + selected_file
+            #image_file = 'images/basophil/BAS_0016.tiff'
+            
+            FOLDER_PATH = (os.path.join(os.path.dirname(__file__), "images/basophil"))
+            #all_files = [item for item in listdir('FOLDER_PATH') if os.path.isfile(join('FOLDER_PATH', item))]
 
-            dict = listdir(FOLDER_PATH)
-            st.write(dict)   
+            #st.write(listdir(FOLDER_PATH).items()[0])
+            images = []
+            for i in range(10):
+                images.append(listdir(FOLDER_PATH).items()[i])
+            image_file = st.selectbox("Pick an image to test",images) 
+
 
         if image_file is not None:
             image = open_image(image_file)
@@ -548,21 +568,22 @@ if selected == 'Prediction':
 if selected == 'Perspectives':
     st.header('Perspectives')
     st.markdown("""
-        The role of machine learning methods in intelligent medical diagnostics is becoming more and more present these days.
-        And deep neural networks are revolutionizing the medical diagnosis process rapidly.
+        The role and importance of both machine learning methods for medical diagnostics is becoming more and more present these days.
+        Deep neural networks have revolutionized the possibilities and quality of medical diagnosis and are continuing to do so.
 
-         - in reality,there is a wider spectrum of blood cell types, regarding to subcategories of immature granulocytes and other early stages of blood cell.
-         In this project the focus was to detect 8 different blood cells types.""")
+         - In reality an even wider spectrum of blood cell types subsists (e.g., subcategories of immature granulocytes and other early stages of blood 
+         cells) compared to the 8 different blood cells types which were the focus of this project.
+         """)
 
     st.image(hema, caption = 'Hematopoiesis')
    
     st.markdown("""
-        - the training data set should be as diverse and precise as possible to classify the blood cells.
+        - To obtain the best possible outcome and a high level of generalizability, training data sets should be as diverse and precise as possible blood cell classficication (or any kind of image classification).
 
-        - different sources can considerly change the outcome of images, like the different medical devices, microscope and camera,
-        and the method of processing the blood cells, the use of stain.
+        - There are different factors which can considerably change the outcome of an image. For example the different medical devices, microscopes and cameras that are used,
+        but also the method of processing the blood cells and the kind of staining has an influence.
 
-        - the dataset can be used to recognize the blood cell type and trained further to classify other types of abnormal cells.
+        - These datasets can be used to recognize blood cell types and they could be further applied to classify other types of (ab-)normal cells.
         """)
 #------------------------------------------------------------------------------------------------------------------------------------------
 #Section About
