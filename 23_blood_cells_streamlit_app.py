@@ -238,7 +238,7 @@ if selected == 'E.D.A.':
     source_code = html_file.read()
 
     # Display the HTML file
-    components.html(source_code, height=1000, width=1000, scrolling=True)
+    components.html(source_code, height=1000, width=1000, scrolling=True, use_container_width=True)
 
     st.markdown("""
     The following sample of images sorted by classes and origin as far as available visualizes different stainings and exposures according to their sources. Furthermore 
