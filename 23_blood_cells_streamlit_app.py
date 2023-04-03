@@ -450,7 +450,7 @@ def list_images(directory, file_type):
     #images = []
     #for img_path in glob.glob('./' + directory + '/'):
         #images.append(mpimg.imread(img_path))
-    file = st.selectbox("Pick an image to test",files)
+    file = st.selectbox("Pick an image to test","BAS_0016.tiff")
     return file
 
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -472,7 +472,7 @@ if selected == 'Prediction':
             selected_class = st.selectbox("Select a class:", ["Please make selection",*CLASS_LABELS])
             directory = 'images/'
             selected_file = list_images(directory, selected_class)
-            #image_file = directory + selected_class + '/' + selected_file
+            image_file = directory + selected_class + '/' + selected_file
 
         if image_file is not None:
             image = open_image(image_file)
