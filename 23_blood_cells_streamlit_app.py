@@ -489,14 +489,12 @@ if selected == 'Prediction':
             FOLDER_PATH = (os.path.join(os.path.dirname(__file__), "images/basophil"))
             #all_files = [item for item in listdir('FOLDER_PATH') if os.path.isfile(join('FOLDER_PATH', item))]
 
-            #file = st.selectbox("Pick an image to test",images) 
-            st.write(listdir(FOLDER_PATH).items()[0])
-      
-            #image = Image.open(files[index])
-            #st.image(image, use_column_width=True)
+            #st.write(listdir(FOLDER_PATH).items()[0])
+            images = []
+            for i in range(10):
+                images.append(listdir(FOLDER_PATH).items()[i])
+            image_file = st.selectbox("Pick an image to test",images) 
 
-           
-            
 
         if image_file is not None:
             image = open_image(image_file)
