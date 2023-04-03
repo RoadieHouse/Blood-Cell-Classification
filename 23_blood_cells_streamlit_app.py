@@ -607,7 +607,7 @@ if selected == 'About':
     st.subheader('Image References')
     st.markdown("""<div style="color:#696969">
     <ul>
-        <li>[https://tenor.com/de/view/red-blood-cells-national-geographic-arteries-blood-flow-world-heart-day-gif-18613531](https://tenor.com/de/view/red-blood-cells-national-geographic-arteries-blood-flow-world-heart-day-gif-18613531)
-        <li>[https://en.wikipedia.org/wiki/Haematopoiesis](https://en.wikipedia.org/wiki/Haematopoiesis)
+        <li> [https://tenor.com/de/view/red-blood-cells-national-geographic-arteries-blood-flow-world-heart-day-gif-18613531](https://tenor.com/de/view/red-blood-cells-national-geographic-arteries-blood-flow-world-heart-day-gif-18613531)
+        <li> [https://en.wikipedia.org/wiki/Haematopoiesis](https://en.wikipedia.org/wiki/Haematopoiesis)
     </ul>
     </div>""",unsafe_allow_html=True)
