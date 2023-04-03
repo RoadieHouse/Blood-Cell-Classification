@@ -491,16 +491,8 @@ if selected == 'Prediction':
             #images/basophil/BAS_0016.tiff
 
             pathdirectory = pathlib.Path('https://github.com/RoadieHouse/Blood-Cell-Classification/blob/main/images/basophil')
-            
-            def list_files():
-                files = []
-                for filename in os.listdir(pathdirectory):
-                    path = os.path.join(pathdirectory, filename)
-                    if os.path.isfile(path):
-                        files.append(filename)
-                return files
-
-            st.write(list_files())
+            filename = st.file_picker("Pick a file", folder=directory, type=("tiff", "jpg")) 
+            st.write(filename)
 
         if image_file is not None:
             image = open_image(image_file)
