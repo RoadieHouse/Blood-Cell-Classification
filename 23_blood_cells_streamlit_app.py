@@ -449,17 +449,17 @@ def list_images(directory, file_type):
     if(file_type != 'Please make selection'):
         directory += file_type
         st.write(directory)
-        #files = listdir(directory)
-        #st.write(files)
+        files = listdir('https://github.com/RoadieHouse/Blood-Cell-Classification/blob/main/' + directory)
+        st.write(files)
         #files[0] = "Select from list"
         #images = []
-        for img_path in glob.glob(directory + '/*'):
-            images.append(mpimg.imread(img_path))
+        #for img_path in glob.glob(directory + '/*'):
+            #images.append(mpimg.imread(img_path))
 
-        file = st.selectbox("Pick an image to test",images)
+        #file = st.selectbox("Pick an image to test",images)
 
  
-        st.write(file)
+        #st.write(file)
         return file
     else:
         return Null
@@ -483,7 +483,7 @@ if selected == 'Prediction':
             selected_class = st.selectbox("Select a class:", ["Please make selection",*CLASS_LABELS])
             
             directory = 'images/'
-            #selected_file = list_images(directory, selected_class)
+            selected_file = list_images(directory, selected_class)
             #image_file = directory + selected_class + '/' + selected_file
             #images/basophil/BAS_0016.tiff
 
