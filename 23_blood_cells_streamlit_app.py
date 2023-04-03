@@ -493,8 +493,8 @@ if selected == 'Prediction':
             #image_file = directory + selected_class + '/' + selected_file
             #image_file = 'images/basophil/BAS_0016.tiff'
             
-            FOLDER_PATH = (os.path.join(os.path.dirname(__file__), "images/basophil"))
-            st.write(listdir(FOLDER_PATH).items())
+            FOLDER_PATH = (os.path.join(os.path.dirname(__file__), dictory))
+            st.write(listdir(FOLDER_PATH))
 
 
 
