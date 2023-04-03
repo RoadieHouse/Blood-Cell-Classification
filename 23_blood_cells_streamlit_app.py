@@ -610,4 +610,4 @@ if selected == 'About':
         <li>https://tenor.com/de/view/red-blood-cells-national-geographic-arteries-blood-flow-world-heart-day-gif-18613531
         <li>https://en.wikipedia.org/wiki/Haematopoiesis
     </ul>
-    </div>""")
+    </div>""",unsafe_allow_html=True)
