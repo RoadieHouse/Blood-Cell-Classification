@@ -490,10 +490,8 @@ if selected == 'Prediction':
             #image_file = directory + selected_class + '/' + selected_file
             #image_file = 'images/basophil/BAS_0016.tiff'
             
-            file_pattern = st.text_input('Glob file pattern to match', 'images/basophil/*.png')
-            image_list = glob.glob(file_pattern)
-            st.write(f"Found {len(image_list)} images")
-
+            
+            st.write(os.path.join(os.path.dirname((__file__)), "images/basophil"))
            
             
 
