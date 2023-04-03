@@ -489,8 +489,9 @@ if selected == 'Prediction':
             #image_file = directory + selected_class + '/' + selected_file
             #image_file = 'images/basophil/BAS_0016.tiff'
             
-            st.write(listdir(os.path.join(os.path.dirname(__file__), "images/basophil")))
-
+            files = listdir(os.path.join(os.path.dirname(__file__), "images/basophil"))
+            file = st.selectbox("Pick an image to test",images)
+            st.write(file)
            
             
 
