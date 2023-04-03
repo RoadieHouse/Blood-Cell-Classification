@@ -24,15 +24,13 @@ import base64
 import os
 import glob
 import pathlib
+
 #------------------------------------------------------------------------------------------------------------------------------------------
 # Overall page configuration
 st.set_page_config(page_title="BCC", page_icon=":drop_of_blood:", layout="centered", initial_sidebar_state="auto", menu_items=None)
 
 #------------------------------------------------------------------------------------------------------------------------------------------
-#streamlit run "C:\Users\User\Desktop\streamlit\23_blood_cells_streamlit_app.py"
-
-#------------------------------------------------------------------------------------------------------------------------------------------
-# open images to display (maybe add them to corresponding section for clarity/structure
+# Open images to display (maybe add them to corresponding section for clarity/structure
 @st.cache_data
 def open_image(img):
     return Image.open(img)
@@ -74,6 +72,7 @@ cell_22 = open_image('images/Ra_Mon.jpg')
 cell_23 = open_image('images/Ra_Neu.jpg')
 cell_24 = open_image('images/x.png')
 hema = open_image('images/Hematopoiesis.jpg')
+
 #------------------------------------------------------------------------------------------------------------------------------------------
 # Title of the Page
 Header = st.container()
@@ -89,7 +88,8 @@ selected = option_menu(None, ["Introduction", "E.D.A.", "Modelisation", 'Predict
 # Section Home
 if selected == 'Introduction':
     st.header('Introduction')
-
+    
+    #blood flow GIF
     file_ = open("red-blood-cells-national-geographic.gif", "rb")
     contents = file_.read()
     data_url = base64.b64encode(contents).decode("utf-8")
@@ -99,7 +99,8 @@ if selected == 'Introduction':
     f'<div style="text-align:center;"><img src="data:image/gif;base64,{data_url}" alt="cat gif"></div>',
     unsafe_allow_html=True,
     )
-
+    
+    #increase pad
     st.write("\n\n")
 
 
@@ -121,12 +122,13 @@ if selected == 'Introduction':
     In this study the focus lies on erythroblasts which are an early stage of erythrocytes and the subdivision of leukocytes such as neutrophils,
     basophils, eosinophils, monocytes ,lymphocytes and immature granulocytes (IG) and the as mentioned above, platelets.\n''')
 
-    # image blood cells
+    #image blood cells
     st.image(img_home_01, caption = 'The different types of blood cells to classify')
 
     #horizontal line
     st.markdown("<hr>", unsafe_allow_html=True)
-
+    
+    #links to datasets
     st.markdown("*The data which enabled this project was derived from three different sources. The entire data is publicly available:*")
 
     st.markdown("""<div style="color:#696969">
@@ -141,9 +143,8 @@ if selected == 'Introduction':
     </ul>
     </div>""", unsafe_allow_html=True)
 
-
 #------------------------------------------------------------------------------------------------------------------------------------------
-#Section EDA
+# Section EDA
 if selected == 'E.D.A.':
     st.header('Exploratory Data Analysis')
     st.markdown(
@@ -185,7 +186,7 @@ if selected == 'E.D.A.':
             """
         )
 
-    # Display the dataframe
+    #Display the dataframe
     st.markdown(
     """
     An extract of the combined dataset with additional features gathered from the files:
@@ -202,20 +203,21 @@ if selected == 'E.D.A.':
                 continuous process.
                 """)
 
-   # Create scatterplot with Plotly
+    #Create scatterplot with Plotly
     fig = px.scatter(df, x='Width', y='Height', color='Origin', size='Height', symbol='Origin',
                      hover_data={'Shape': True, 'Luminosity' : True, 'Brightness' : True},
                      hover_name="Origin")
 
-    # Set axis labels and title
+    #Set axis labels and title
     fig.update_xaxes(title='Width', showgrid=True)
     fig.update_yaxes(title='Height')
     fig.update_layout(title='Original image resolution', title_font_size=18,
                       plot_bgcolor="#0e1117", paper_bgcolor="#0e1117", font_color="white")
 
-    # Display plot in Streamlit
+    #Display plot in Streamlit
     st.plotly_chart(fig, use_container_width=True)
-
+    
+    #Display RGB distibution
     st.subheader('Brightness')
     st.markdown("""
     The brightness is calculated by the RGB pixel distribution, which show different characteristics according to the classes.
@@ -224,6 +226,7 @@ if selected == 'E.D.A.':
 
     st.write('\n')
 
+    #Display Greyscale distribution
     st.subheader('Luminance')
     st.markdown("""
     The luminance is calculated by the greyscale pixel distribution.
@@ -234,14 +237,14 @@ if selected == 'E.D.A.':
     st.subheader('UMAP')
     st.markdown("""
     The plot of the dimension reduction trough Uniform Manifold Approximation and Projection (UMAP) shows that the images tend to be clustered according to their originating
-    dataset instead of the blood cell types. The only class that clearly visible are platelets which are only represented in one dataset.
+    dataset instead of the blood cell types. The only class that is clearly visible are platelets which are only represented in one dataset.
         """)
 
-    # Load the HTML file
+    # Load the HTML UMAP file
     html_file = open('UMAP_final.html', 'r', encoding='utf-8')
     source_code = html_file.read()
 
-    # Display the HTML file
+    # Display the HTML UMAP file
     components.html(source_code, height=1000, width=1000, scrolling=True)
 
     st.markdown("""
@@ -288,12 +291,14 @@ if selected == 'E.D.A.':
         col5.image(cell_21, use_column_width=True, caption = '\u200A\u200ALT,\u200A\u200A\u200A\u200A\u200A\u200A\u200A\u200A\u200A\u200A\u200A\u200A\u200A Raabin')
         col6.image(cell_22, use_column_width=True, caption = 'MON, Raabin')
         col7.image(cell_23, use_column_width=True, caption = 'NEU, Raabin')
+        
 #------------------------------------------------------------------------------------------------------------------------------------------
-#Section Models
+# Section Models
 if selected == 'Modelisation':
     st.header('Modelisation')
     st.markdown('In the following we present the models that achieved the best prediction results:')
 
+    #Initial information expander
     with st.expander("Further information about the modelisation process"):
         st.subheader('First steps')
         st.markdown(
@@ -324,6 +329,8 @@ if selected == 'Modelisation':
             to ~88%.
             """
         )
+        
+    #Resnet model performance
     st.subheader('ResNet50V2 as base model')
     st.markdown(
         """
@@ -338,6 +345,7 @@ if selected == 'Modelisation':
         a high number of units (before the output layer)
         - F1-score: 91%
         """)
+    
     col1, col2 = st.columns(2)
     col1.image(Analysis_01, use_column_width=True, caption = 'ResNet50V2 Loss')
     col2.image(Analysis_02, use_column_width=True, caption = 'ResNet50V2 Accuracy')
@@ -351,12 +359,12 @@ if selected == 'Modelisation':
         """)
 
     col1, col2 = st.columns(2)
-
     col1.image(Analysis_03, use_column_width=True, caption = 'ResNet50V2 with fine tuning Loss')
     col2.image(Analysis_04, use_column_width=True, caption = 'ResNet50V2 with fine tuning Accuracy')
     
     st.image(Analysis_05, caption = 'ResNet50V2 Confusion Matrix')
 
+    #Mixed input model
     st.subheader('Mixed inputs')
     st.markdown(
         """
@@ -364,11 +372,8 @@ if selected == 'Modelisation':
         - The features luminosity and brightness were used as additional numerical input next to the image arrays
         - F1-score: 97.3%
         """)
-
-  
-
-    # st.image(Analysis_06_mix, caption = 'Confusion Matrix')
-
+    
+    #VGG model
     st.subheader('VGG16 as base model')
     st.markdown(
         """
@@ -440,7 +445,7 @@ def predict(image):
         confidence = predictions.max()
         return predicted_class, confidence
 
-# list all available images to make predicitions on (no images uploaded so far right?)
+# list all available images to make predicitions on
 def list_images(directory, file_type):
     if(file_type != 'Please make selection'):
         directory += file_type
@@ -454,31 +459,26 @@ def list_images(directory, file_type):
 
         #file = st.selectbox("Pick an image to test",images)
 
- 
         #st.write(file)
         return file
     else:
         return Null
-CLASS_LABELS_BOX = ['basophil',
-                'eosinophil',
-                'erythroblast',
-                'ig',
-                'lymphocyte',
-                'monocyte',
-                'neutrophil',
-                'platelet']
+
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# Header prediction
 if selected == 'Prediction':
 
     st.header('Prediction')
     st.subheader("Here you can choose a model to classify a blood cell image")
 
+    #select model for prediction
     model_for_prediction = st.selectbox("Select a model", ["Select a model:", "Resnet50V2", "VGG16"])
+    
     if model_for_prediction == "Select a model":
         st.info("A model has to be selected to make a prediction.")
     else:
         l_col, r_col = st.columns(2)
-
+        
         with l_col:
             image_file = st.file_uploader("Upload an image to classify:", type=["jpg", "jpeg", "png", "tiff"])
 
@@ -497,7 +497,7 @@ if selected == 'Prediction':
             st.write(listdir(FOLDER_PATH))
 
 
-
+        #check that an image is selected and open if it is
         if image_file is not None:
             image = open_image(image_file)
             st.image(image, caption="Uploaded Image", width = 180)
@@ -506,9 +506,9 @@ if selected == 'Prediction':
             st.info("Please upload an image to classify or choose one from the dropdown manu on the right")
             #something with selected classes
             #image = ...
-
+            
+        #model predicition
         if (st.button("Predict")):
-
             if model_for_prediction == "Resnet50V2":
 
                 #Create a dictionary mapping the function name to the function object
@@ -525,22 +525,22 @@ if selected == 'Prediction':
             #st.image(image, caption="Uploaded Image", width = 180)
             predicted_class, confidence = predict(image)
 
+            #provide info about prediction
             col1, col2 = st.columns(2)
             with col1:
                 st.title("Predicted class:")
                 st.subheader(f"{predicted_class}")
+                
             with col2:
                 st.title("Confidence score:")
                 conf_percent = confidence * 100
                 if conf_percent > 50:
-                    #st.markdown(f"<p style=color: green; font-size: 20px;>{conf_percent}%</span>", unsafe_allow_html=True)
                     st.subheader(f":green[{conf_percent:.2f}%]")
                 else:
                     st.subheader(f":red[{conf_percent:.2f}%]")
 
-
-
             st.write("")
+            
             st.write("\n\n Additional information:")
 
             # Display additional information about the predicted class
@@ -562,8 +562,8 @@ if selected == 'Prediction':
                 st.info("Erythroblasts are immature red blood cells that are involved in the production of hemoglobin and the transportation of oxygen throughout the body.")
 
     # Add some padding and styling elements to the selectbox and file uploader
-    st.markdown('<style>div[role="listbox"] > div:nth-child(1) {padding: 10px; font-family: Arial, sans-serif;}</style>', unsafe_allow_html=True)
-    st.markdown('<style>.css-1aya9p5 {font-family: Arial, sans-serif;}</style>', unsafe_allow_html=True)
+    #st.markdown('<style>div[role="listbox"] > div:nth-child(1) {padding: 10px; font-family: Arial, sans-serif;}</style>', unsafe_allow_html=True)
+    #st.markdown('<style>.css-1aya9p5 {font-family: Arial, sans-serif;}</style>', unsafe_allow_html=True)
 
 #------------------------------------------------------------------------------------------------------------------------------------------
 #Section Perspectives
