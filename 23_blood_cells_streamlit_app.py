@@ -482,8 +482,7 @@ if selected == 'Prediction':
             directory += selected_class
             FOLDER_PATH = (os.path.join(os.path.dirname(__file__), "images/basophil")
 
-            st.write(listdir(FOLDER_PATH)[0])
-            image_file = listdir(FOLDER_PATH)[0]
+            st.write(listdir(FOLDER_PATH))
 
         if image_file is not None:
             image = open_image(image_file)
