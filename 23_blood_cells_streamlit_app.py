@@ -459,7 +459,14 @@ def list_images(directory, file_type):
         return file
     else:
         return Null
-
+CLASS_LABELS_BOX = ['basophil',
+                'eosinophil',
+                'erythroblast',
+                'ig',
+                'lymphocyte',
+                'monocyte',
+                'neutrophil',
+                'platelet']
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 if selected == 'Prediction':
 
@@ -476,7 +483,7 @@ if selected == 'Prediction':
             image_file = st.file_uploader("Upload an image to classify:", type=["jpg", "jpeg", "png", "tiff"])
 
         with r_col:
-            selected_class = st.selectbox("Select a class:", [*CLASS_LABELS])
+            selected_class = st.selectbox("Select a class:", [*CLASS_LABELS_BOX])
             
             directory = 'images/'
             directory += selected_class
@@ -486,14 +493,9 @@ if selected == 'Prediction':
             #image_file = directory + selected_class + '/' + selected_file
             #image_file = 'images/basophil/BAS_0016.tiff'
             
-            FOLDER_PATH = (os.path.join(os.path.dirname(__file__), "images/basophil"))
-            #all_files = [item for item in listdir('FOLDER_PATH') if os.path.isfile(join('FOLDER_PATH', item))]
+            FOLDER_PATH = (os.path.join(os.path.dirname(__file__), directory))
+            st.write(listdir(FOLDER_PATH).items())
 
-            #st.write(listdir(FOLDER_PATH).items()[0])
-            images = []
-            for i in range(10):
-                images.append(listdir(FOLDER_PATH).items()[i])
-            image_file = st.selectbox("Pick an image to test",images) 
 
 
         if image_file is not None:
