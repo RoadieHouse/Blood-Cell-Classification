@@ -487,13 +487,13 @@ if selected == 'Prediction':
             
             directory = 'images/'
             directory += selected_class
-            #st.write(directory)
+            st.write(directory)
             #st.write(files)
             #selected_file = list_images(directory, selected_class)
             #image_file = directory + selected_class + '/' + selected_file
             #image_file = 'images/basophil/BAS_0016.tiff'
             
-            FOLDER_PATH = (os.path.join(os.path.dirname(__file__), directory))
+            FOLDER_PATH = (os.path.join(os.path.dirname(__file__), "images/basophil"))
             st.write(listdir(FOLDER_PATH).items())
 
 
