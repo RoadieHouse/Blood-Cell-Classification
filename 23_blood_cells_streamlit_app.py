@@ -445,24 +445,24 @@ def predict(image):
         confidence = predictions.max()
         return predicted_class, confidence
 
-# list all available images to make predicitions on
-def list_images(directory, file_type):
-    if(file_type != 'Please make selection'):
-        directory += file_type
-        st.write(directory)
-        files = listdir('https://github.com/RoadieHouse/Blood-Cell-Classification/blob/main/' + directory)
-        st.write(files)
-        #files[0] = "Select from list"
-        #images = []
-        #for img_path in glob.glob(directory + '/*'):
-            #images.append(mpimg.imread(img_path))
-
-        #file = st.selectbox("Pick an image to test",images)
-
-        #st.write(file)
-        return file
-    else:
-        return Null
+# list all available images to make predicitions on (NOT USED AT THE MOMENT!)
+#def list_images(directory, file_type):
+#    if(file_type != 'Please make selection'):
+#        directory += file_type
+#        st.write(directory)
+#        files = listdir('https://github.com/RoadieHouse/Blood-Cell-Classification/blob/main/' + directory)
+#        st.write(files)
+#        files[0] = "Select from list"
+#        images = []
+#        for img_path in glob.glob(directory + '/*'):
+#            images.append(mpimg.imread(img_path))
+#
+#        file = st.selectbox("Pick an image to test",images)
+#
+#        st.write(file)
+#        return file
+#    else:
+#        return Null
 
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # Header prediction
@@ -477,24 +477,25 @@ if selected == 'Prediction':
     if model_for_prediction == "Select a model":
         st.info("A model has to be selected to make a prediction.")
     else:
-        l_col, r_col = st.columns(2)
-        
-        with l_col:
-            image_file = st.file_uploader("Upload an image to classify:", type=["jpg", "jpeg", "png", "tiff"])
-
-        with r_col:
-            selected_class = st.selectbox("Select a class:", [*CLASS_LABELS_BOX])
-            
-            directory = 'images/'
-            directory += selected_class
-            st.write(directory)
-            #st.write(files)
-            #selected_file = list_images(directory, selected_class)
-            #image_file = directory + selected_class + '/' + selected_file
-            #image_file = 'images/basophil/BAS_0016.tiff'
-            
-            FOLDER_PATH = (os.path.join(os.path.dirname(__file__), "images/basophil"))
-            st.write(listdir(FOLDER_PATH))
+        image_file = st.file_uploader("Upload an image to classify:", type=["jpg", "jpeg", "png", "tiff"])
+         
+#NOT USED AT THE MOMENT        
+#        l_col, r_col = st.columns(2)
+#        with l_col:
+#            image_file = st.file_uploader("Upload an image to classify:", type=["jpg", "jpeg", "png", "tiff"])
+#        with r_col:
+#            selected_class = st.selectbox("Select a class:", [*CLASS_LABELS)
+#            
+#            directory = 'images/'
+#            directory += selected_class
+#            st.write(directory)
+#            st.write(files)
+#            selected_file = list_images(directory, selected_class)
+#            image_file = directory + selected_class + '/' + selected_file
+#            image_file = 'images/basophil/BAS_0016.tiff'
+#            
+#            FOLDER_PATH = (os.path.join(os.path.dirname(__file__), "images/basophil"))
+#            st.write(listdir(FOLDER_PATH))
 
 
         #check that an image is selected and open if it is
