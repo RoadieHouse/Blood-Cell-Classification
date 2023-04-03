@@ -480,13 +480,13 @@ if selected == 'Prediction':
             image_file = st.file_uploader("Upload an image to classify:", type=["jpg", "jpeg", "png", "tiff"])
 
         with r_col:
-            selected_class = st.selectbox("Select a class:", ["Please make selection",*CLASS_LABELS])
+            selected_class = st.selectbox("Select a class:", [*CLASS_LABELS])
             
             directory = 'images/'
-            #directory += file_type
+            directory += file_type
             #st.write(directory)
-            #files = listdir('https://github.com/RoadieHouse/Blood-Cell-Classification/blob/main/' + directory)
-            #st.write(files)
+            files = listdir('https://github.com/RoadieHouse/Blood-Cell-Classification/blob/main/' + directory)
+            st.write(files)
             #selected_file = list_images(directory, selected_class)
             #image_file = directory + selected_class + '/' + selected_file
             #images/basophil/BAS_0016.tiff
