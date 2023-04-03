@@ -446,19 +446,16 @@ def list_images(directory, file_type):
     if(file_type != 'Please make selection'):
         directory += file_type
         st.write(directory)
-        files = listdir(directory)
-        st.write(files)
+        #files = listdir(directory)
+        #st.write(files)
         #files[0] = "Select from list"
         #images = []
-        #for img_path in glob.glob('./' + directory + '/'):
-            #images.append(mpimg.imread(img_path))
-        #file = st.selectbox("Pick an image to test",'BAS_0016.tiff')
+        for img_path in glob.glob('./blob/main/' + directory + '/'):
+            images.append(mpimg.imread(img_path))
+        file = st.selectbox("Pick an image to test",images)
 
-        for root, dirs, files in os.walk('./'):
-          for file in files:
-                 filename=os.path.join(root, file)
-                 filelist.append(filename)
-        st.write(filelist)
+ 
+        st.write(file)
         return file
     else:
         return Null
