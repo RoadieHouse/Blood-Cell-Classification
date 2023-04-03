@@ -591,19 +591,23 @@ if selected == 'Perspectives':
 #Section About
 if selected == 'About':
     st.header('About')
-    st.markdown('This machine learning project was part of Datascientest International Class at University of Paris La Sorbonne.')
-    st.header('Contributors')
+    st.markdown('This machine learning project was part of Datascientest International Class @[University of Paris La Sorbonne](https://www.sorbonne-universite.fr/en).')
+    st.header('Contributors:')
     st.markdown('''
-    Elias Zitterbarth  ([LinkedIn](https://www.linkedin.com/in/elias-zitterbarth) & [GitHub](https://github.com/RoadieHouse))<div style="border-top: 1px ridged #ccc;"></div>
+    Elias Zitterbarth  ( [LinkedIn](https://www.linkedin.com/in/elias-zitterbarth)  &  [GitHub](https://github.com/RoadieHouse) )
     
-    Lilli Krizek  ([LinkedIn](https://www.linkedin.com/in/lilli-krizek-494768226) & [GitHub](https://github.com/Lillioona))<div style="border-top: 1px inset #ccc;"></div>
+    Lilli Krizek  ( [LinkedIn](https://www.linkedin.com/in/lilli-krizek-494768226)  &  [GitHub](https://github.com/Lillioona) )
     
-    Amritha Kalluvettukuzhiyil  ([LinkedIn](www.linkedin.com/in/amritha-k-742b36241) & [GitHub](https://github.com/AmrithaPrasneh))<div style="border-top: 1px outset #ccc;"></div>
+    Amritha Kalluvettukuzhiyil  ( [LinkedIn](www.linkedin.com/in/amritha-k-742b36241)  &  [GitHub](https://github.com/AmrithaPrasneh) )
     
-    Daniela Hummel  ([GitHub](https://github.com/Poca-lan))''', unsafe_allow_html=True)
+    Daniela Hummel  ( [GitHub](https://github.com/Poca-lan) )''', unsafe_allow_html=True)
 
+    st.markdown("<hr>", unsafe_allow_html=True)
+    
     st.subheader('Image References')
-    st.markdown("""
-    - https://tenor.com/de/view/red-blood-cells-national-geographic-arteries-blood-flow-world-heart-day-gif-18613531
-    - https://en.wikipedia.org/wiki/Haematopoiesis
-     """)
+    st.markdown("""<div style="color:#696969">
+    <ul>
+        <li>https://tenor.com/de/view/red-blood-cells-national-geographic-arteries-blood-flow-world-heart-day-gif-18613531
+        <li>https://en.wikipedia.org/wiki/Haematopoiesis
+    </ul>
+    </div>""")
