@@ -4,6 +4,7 @@ import numpy as np
 import pickle
 import pandas as pd
 import matplotlib.pyplot as plt
+import matplotlib.image as mpimg
 import seaborn as sns
 
 import streamlit.components.v1 as components
@@ -22,7 +23,6 @@ import requests
 import base64
 import os
 import glob
-import matplotlib.image as mpimg
 import pathlib
 #------------------------------------------------------------------------------------------------------------------------------------------
 # Overall page configuration
@@ -41,15 +41,14 @@ img_home_01 = open_image('images/Blood_cell_examples.png')
 img_EDA_01 = open_image('images/Image_size.png')
 img_EDA_02 = open_image('images/RGB_dist.png')
 img_EDA_03 = open_image('images/Grey_dist.png')
-Analysis_01 = open_image('images/RESNET_ft_LossVal.png')
-Analysis_02 = open_image('images/RESNET_ft_f1.png')
-Analysis_04_mix = open_image('images/RESNET_noft_LossVal.png')
-Analysis_05_mix = open_image('images/RESNET_noft_F1.png')
-Analysis_06_ft_res = open_image('images/RESNET_confusion_matrix.png')
-#Analysis_06_mix = open_image('images/Analysis_06_mix.png')
-Analysis_07_Amri = open_image('images/Analysis_07_Amri.png')
-Analysis_08_Amri = open_image('images/Analysis_08_Amri.png')
-Analysis_09_Amri = open_image('images/analysis_09_Amri.png')
+Analysis_01 = open_image('images/RESNET_noft_LossVal.png')
+Analysis_02 = open_image('images/RESNET_noft_F1.png')
+Analysis_03 = open_image('images/RESNET_ft_LossVal.png')
+Analysis_04 = open_image('images/RESNET_ft_f1.png')
+Analysis_05 = open_image('images/RESNET_confusion_matrix.png')
+Analysis_06 = open_image('images/Analysis_07_Amri.png')
+Analysis_07 = open_image('images/Analysis_08_Amri.png')
+Analysis_08 = open_image('images/VGG_confusion_matrix.png')
 cell_01 = open_image('images/M_Bas.jpg')
 cell_02 = open_image('images/M_Eos.jpg')
 cell_03 = open_image('images/M_Er.jpg')
@@ -343,8 +342,8 @@ if selected == 'Modelisation':
         - F1-score: 91%
         """)
     col1, col2 = st.columns(2)
-    col1.image(Analysis_04_mix, use_column_width=True, caption = 'ResNet50V2 Loss')
-    col2.image(Analysis_05_mix, use_column_width=True, caption = 'ResNet50V2 Accuracy')
+    col1.image(Analysis_01, use_column_width=True, caption = 'ResNet50V2 Loss')
+    col2.image(Analysis_02, use_column_width=True, caption = 'ResNet50V2 Accuracy')
 
     st.markdown(
         """
@@ -356,10 +355,10 @@ if selected == 'Modelisation':
 
     col1, col2 = st.columns(2)
 
-    col1.image(Analysis_01, use_column_width=True, caption = 'ResNet50V2 with fine tuning Loss')
-    col2.image(Analysis_02, use_column_width=True, caption = 'ResNet50V2 with fine tuning Accuracy')
+    col1.image(Analysis_03, use_column_width=True, caption = 'ResNet50V2 with fine tuning Loss')
+    col2.image(Analysis_04, use_column_width=True, caption = 'ResNet50V2 with fine tuning Accuracy')
     
-    st.image(Analysis_06_ft_res, caption = 'ResNet50V2 Confusion Matrix')
+    st.image(Analysis_05, caption = 'ResNet50V2 Confusion Matrix')
 
     st.subheader('Mixed inputs')
     st.markdown(
@@ -389,10 +388,10 @@ if selected == 'Modelisation':
         """)
 
     col1, col2 = st.columns(2)
-    col1.image(Analysis_07_Amri, use_column_width=True, caption = 'VGG16 Loss')
-    col2.image(Analysis_08_Amri, use_column_width=True, caption = 'VGG16 Accuracy')
+    col1.image(Analysis_06, use_column_width=True, caption = 'VGG16 Loss')
+    col2.image(Analysis_07, use_column_width=True, caption = 'VGG16 Accuracy')
 
-    st.image(Analysis_09_Amri, caption = 'VGG16 Confusion Matrix')
+    st.image(Analysis_08, caption = 'VGG16 Confusion Matrix')
 #------------------------------------------------------------------------------------------------------------------------------------------
 #Section Prediction
 
@@ -490,8 +489,10 @@ if selected == 'Prediction':
             #image_file = directory + selected_class + '/' + selected_file
             #image_file = 'images/basophil/BAS_0016.tiff'
             
-            
-            st.write(listdir(os.path.join(os.path.dirname((__file__)), "images/basophil")))
+            file_pattern = st.text_input('Glob file pattern to match', 'images/basophil/*.png')
+            image_list = glob.glob(file_pattern)
+            st.write(f"Found {len(image_list)} images")
+
            
             
 
