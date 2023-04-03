@@ -490,7 +490,7 @@ if selected == 'Prediction':
             #image_file = directory + selected_class + '/' + selected_file
             #image_file = 'images/basophil/BAS_0016.tiff'
             
-            images = glob.glob("/images/basophil/")
+            images = glob.glob("./images/basophil/")
             st.write(images)
 
            
