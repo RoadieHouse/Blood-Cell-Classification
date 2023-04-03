@@ -504,9 +504,7 @@ if selected == 'Prediction':
             st.image(image, caption="Uploaded Image", width = 180)
 
         else:
-            st.info("Please upload an image to classify or choose one from the dropdown manu on the right")
-            #something with selected classes
-            #image = ...
+            st.info("Please upload an image.")
             
         #model predicition
         if (st.button("Predict")):
@@ -522,8 +520,7 @@ if selected == 'Prediction':
             if model_for_prediction == "VGG16":
                 model = load_dl_model(VGG_MODEL)
 
-
-            #st.image(image, caption="Uploaded Image", width = 180)
+            #predicition and confidence value
             predicted_class, confidence = predict(image)
 
             #provide info about prediction
@@ -562,10 +559,6 @@ if selected == 'Prediction':
             elif predicted_class == "Erythroblast":
                 st.info("Erythroblasts are immature red blood cells that are involved in the production of hemoglobin and the transportation of oxygen throughout the body.")
 
-    # Add some padding and styling elements to the selectbox and file uploader
-    #st.markdown('<style>div[role="listbox"] > div:nth-child(1) {padding: 10px; font-family: Arial, sans-serif;}</style>', unsafe_allow_html=True)
-    #st.markdown('<style>.css-1aya9p5 {font-family: Arial, sans-serif;}</style>', unsafe_allow_html=True)
-
 #------------------------------------------------------------------------------------------------------------------------------------------
 #Section Perspectives
 if selected == 'Perspectives':
@@ -592,8 +585,11 @@ if selected == 'Perspectives':
 #Section About
 if selected == 'About':
     st.header('About')
+    
     st.markdown('This machine learning project was part of Datascientest International Class @[University of Paris La Sorbonne](https://www.sorbonne-universite.fr/en).')
+    
     st.header('Contributors:')
+    
     st.markdown('''
     Elias Zitterbarth  ( [LinkedIn](https://www.linkedin.com/in/elias-zitterbarth)  &  [GitHub](https://github.com/RoadieHouse) )
     
@@ -605,6 +601,7 @@ if selected == 'About':
 
     st.markdown("<hr>", unsafe_allow_html=True)
     
+    #image references
     st.subheader('Image References')
     st.markdown("""<div style="color:#696969">
     <ul>
