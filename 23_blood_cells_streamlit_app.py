@@ -491,15 +491,7 @@ if selected == 'Prediction':
             #image_file = 'images/basophil/BAS_0016.tiff'
             
             images = glob.glob("/images/basophil/")
-            index= st.number_input('Index')
-
-            if st.button('Next'):
-                index+=1
-
-
-            if st.button('Prev'):
-                if index > 0
-                    index = index -1
+            st.write(images)
 
            
             
