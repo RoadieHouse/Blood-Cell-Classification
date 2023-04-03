@@ -22,6 +22,7 @@ import requests
 import base64
 import os
 import glob
+import matplotlib.image as mpimg
 
 #------------------------------------------------------------------------------------------------------------------------------------------
 # Overall page configuration
@@ -442,6 +443,7 @@ def predict(image):
 # list all available images to make predicitions on (no images uploaded so far right?)
 def list_images(directory, file_type):
     directory += file_type
+    st.write(directory)
     #files = listdir(directory)
     #files[0] = "Select from list"
     images = []
