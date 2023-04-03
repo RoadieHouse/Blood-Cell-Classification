@@ -483,7 +483,7 @@ if selected == 'Prediction':
             selected_class = st.selectbox("Select a class:", [*CLASS_LABELS])
             
             directory = 'images/'
-            directory += file_type
+            directory += selected_class
             #st.write(directory)
             files = listdir('https://github.com/RoadieHouse/Blood-Cell-Classification/blob/main/' + directory)
             st.write(files)
