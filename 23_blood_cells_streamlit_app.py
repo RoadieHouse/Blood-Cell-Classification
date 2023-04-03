@@ -90,13 +90,11 @@ selected = option_menu(None, ["Introduction", "E.D.A.", "Modelisation", 'Predict
 if selected == 'Introduction':
     st.header('Introduction')
 
-    st.cache_data
     file_ = open("red-blood-cells-national-geographic.gif", "rb")
     contents = file_.read()
     data_url = base64.b64encode(contents).decode("utf-8")
     file_.close()
 
-    st.cache_data
     st.markdown(
     f'<div style="text-align:center;"><img src="data:image/gif;base64,{data_url}" alt="cat gif"></div>',
     unsafe_allow_html=True,
@@ -193,7 +191,6 @@ if selected == 'E.D.A.':
     An extract of the combined dataset with additional features gathered from the files:
     """
     )
-    st.cache_data
     df = pd.read_csv("dataframe_eda.csv", index_col=0)
 
     with st.expander("Show dataset:"):
@@ -493,7 +490,7 @@ if selected == 'Prediction':
             #all_files = [item for item in listdir('FOLDER_PATH') if os.path.isfile(join('FOLDER_PATH', item))]
 
             #file = st.selectbox("Pick an image to test",images) 
-            st.write(listdir(FOLDER_PATH)[0])
+            st.write(listdir(FOLDER_PATH).items()[0])
       
             #image = Image.open(files[index])
             #st.image(image, use_column_width=True)
