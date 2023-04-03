@@ -483,7 +483,10 @@ if selected == 'Prediction':
             FOLDER_PATH = os.path.join(os.path.dirname(__file__), "images/basophil")
 
             dict = listdir(FOLDER_PATH)
-            st.write(list(dict.items()))
+            images = []
+            for i in range(10):
+                images.append(dict[i])
+            st.write(images)   
 
         if image_file is not None:
             image = open_image(image_file)
