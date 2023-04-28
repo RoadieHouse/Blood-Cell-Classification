@@ -106,21 +106,21 @@ if selected == 'Introduction':
 
     st.markdown('''
     Blood is a body fluid which flows in the human circulation system and has important functions, such as the supplement of necessary
-    substances such as nutrients and oxygen to cells, removing waste and immune defense.
+    substances including nutrients and oxygen to cells, removing waste and enabling the immune defense.
 
-    By the change of their blood components in blood count many diseases can be discovered as well as their severity,
-    because of that blood is one of the most examined body fluid in the medical laboratory.
+    Due to the change of blood components in blood counts, many diseases can be discovered as well as their severity.
+    Because of that, blood is one of the most examined body fluids in the medical laboratory.
 
-    Especially for hematological diseases, the analysis of the morphology of blood is well known and used in form of blood smear review.
+    Especially for hematological diseases, the analysis of the morphology of blood is well known and used in the form of blood smear reviews.
     However, to detect morphological differences between distinct types of normal and abnormal peripheral blood cells, it requires experience,
-    skills and time.
-    Therefore, it is very helpful for hematological diagnosis the use of automatic blood cell recognition system.
+    skills, and time.
+    Therefore, the use of automatic blood cell recognition system is very helpful for hematological diagnosis.
 
-    The main object of this project is to develop a deep learning models to recognize different types of blood cells.
-    In general blood cells can be divided into erythrocytes known as red blood cells , leukocytes known as white blood cells and the cell fragments
+    The main object of this project was to develop a deep learning model to recognize different types of blood cells.
+    In general, blood cells can be divided into erythrocytes known as red blood cells, leukocytes known as white blood cells and the cell fragments
     called platelets or thrombocytes.
     In this study the focus lies on erythroblasts which are an early stage of erythrocytes and the subdivision of leukocytes such as neutrophils,
-    basophils, eosinophils, monocytes ,lymphocytes and immature granulocytes (IG) and the as mentioned above, platelets.\n''')
+    basophils, eosinophils, monocytes, lymphocyte, immature granulocytes (IG) and the previously mentioned platelets.\n''')
 
     #image blood cells
     st.image(img_home_01, caption = 'The different types of blood cells to classify')
