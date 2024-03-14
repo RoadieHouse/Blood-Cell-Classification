@@ -517,8 +517,12 @@ if selected == 'Prediction':
                 with tf.keras.utils.custom_object_scope(custom_objects):
                     model = load_dl_model(RES_MODEL)
 
-            if model_for_prediction == "VGG16":
+            elif model_for_prediction == "VGG16":
                 model = load_dl_model(VGG_MODEL)
+
+            else:
+                # Display a message when no model is chosen
+                st.write("Please select a model for prediction.")
 
             #predicition and confidence value
             predicted_class, confidence = predict(image)
