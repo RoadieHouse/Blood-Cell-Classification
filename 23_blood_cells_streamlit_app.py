@@ -399,8 +399,8 @@ if selected == 'Modelisation':
 
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # Necessary function and variables
-RES_MODEL = "models/Best_model_ft_5th_layer.h5"
-VGG_MODEL = "models/vgg16_augmented_model.h5"
+RES_MODEL = "models/model_1_quantized.tflite"
+VGG_MODEL = "models/model_2_quantized.tflite"
 IMG_SIZE = (360,360)
 
 CLASS_LABELS = ['Basophil',
