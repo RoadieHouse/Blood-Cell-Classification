@@ -465,7 +465,11 @@ def preprocess_image(image):
 def predict(image):
     if image is not None:
         image = preprocess_image(image)
-        predictions = model.predict(tf.expand_dims(image, axis=0))[0]
+        input_details = model.get_input_details()
+        model.set_tensor(input_details[0]['index'], np.expand_dims(image,axis=0))
+        model.invoke()
+        output_details = model.get_output_details()
+        predictions = model.get_tensor(output_details[0]['index'])[0]
         predicted_class = CLASS_LABELS[predictions.argmax()]
         confidence = predictions.max()
         return predicted_class, confidence
