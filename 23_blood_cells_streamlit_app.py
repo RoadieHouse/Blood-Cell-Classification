@@ -414,10 +414,35 @@ CLASS_LABELS = ['Basophil',
 
 #function to load model
 @st.cache_resource
+#def load_dl_model(model_choice):
+#    if not os.path.isfile(model_choice):
+#        urllib.request.urlretrieve(f"https://github.com/RoadieHouse/Blood-Cell-Classification/blob/main/{model_choice}", model_choice[:7])
+#    return tf.keras.models.load_model(model_choice)
 def load_dl_model(model_choice):
-    if not os.path.isfile(model_choice):
-        urllib.request.urlretrieve(f"https://github.com/RoadieHouse/Blood-Cell-Classification/blob/main/{model_choice}", model_choice[:7])
-    return tf.keras.models.load_model(model_choice)
+  """Loads the specified model (h5 or TFLite).
+
+  Args:
+      model_choice: Path to the model file (h5 or .tflite)
+
+  Returns:
+      A loaded TensorFlow or TFLite model.
+  """
+
+  if not os.path.isfile(model_choice):
+    # Download from GitHub if not local (optional)
+    # ... (implement download logic if needed)
+    raise ValueError(f"Model file '{model_choice}' not found.")
+
+  # Check file extension to determine loading method
+  if model_choice.endswith('.h5'):
+    return load_model(model_choice)
+  elif model_choice.endswith('.tflite'):
+    # Load TFLite model
+    interpreter = tf.lite.Interpreter(model_path=model_choice)
+    interpreter.allocate_tensors()
+    return interpreter
+  else:
+    raise ValueError(f"Unsupported model format: {model_choice}")
 
 # Calculate f1 score
 def f1(y_true, y_pred):
