@@ -438,12 +438,12 @@ def preprocess_image(image):
 
 # Function to make predictions
 def predict(image):
-    if image is not None:
-        image = preprocess_image(image)
-        predictions = model.predict(tf.expand_dims(image, axis=0))[0]
-        predicted_class = CLASS_LABELS[predictions.argmax()]
-        confidence = predictions.max()
-        return predicted_class, confidence
+    if image is not None:
+        image = preprocess_image(image)
+        predictions = model.predict(tf.expand_dims(image, axis=0))[0]
+        predicted_class = CLASS_LABELS[predictions.argmax()]
+        confidence = predictions.max()
+        return predicted_class, confidence
 
 # list all available images to make predicitions on (NOT USED AT THE MOMENT!)
 #def list_images(directory, file_type):
