@@ -413,36 +413,11 @@ CLASS_LABELS = ['Basophil',
                 'Platelet']
 
 #function to load model
-#@st.cache_resource
-#def load_dl_model(model_choice):
-#    if not os.path.isfile(model_choice):
-#        urllib.request.urlretrieve(f"https://github.com/RoadieHouse/Blood-Cell-Classification/blob/main/{model_choice}", model_choice[:7])
-#    return tf.keras.models.load_model(model_choice)
+@st.cache_resource
 def load_dl_model(model_choice):
-  """Loads the specified model (h5 or TFLite).
-
-  Args:
-      model_choice: Path to the model file (h5 or .tflite)
-
-  Returns:
-      A loaded TensorFlow or TFLite model.
-  """
-
-  if not os.path.isfile(model_choice):
-    # Download from GitHub if not local (optional)
-    # ... (implement download logic if needed)
-    raise ValueError(f"Model file '{model_choice}' not found.")
-
-  # Check file extension to determine loading method
-  if model_choice.endswith('.h5'):
-    return load_model(model_choice)
-  elif model_choice.endswith('.tflite'):
-    # Load TFLite model
-    interpreter = tf.lite.Interpreter(model_path=model_choice)
-    interpreter.allocate_tensors()
-    return interpreter
-  else:
-    raise ValueError(f"Unsupported model format: {model_choice}")
+    if not os.path.isfile(model_choice):
+        urllib.request.urlretrieve(f"https://github.com/RoadieHouse/Blood-Cell-Classification/blob/main/{model_choice}", model_choice[:7])
+    return tf.keras.models.load_model(model_choice)
 
 # Calculate f1 score
 def f1(y_true, y_pred):
@@ -463,16 +438,12 @@ def preprocess_image(image):
 
 # Function to make predictions
 def predict(image):
-    if image is not None:
-        image = preprocess_image(image)
-        input_details = model.get_input_details()
-        model.set_tensor(input_details[0]['index'], np.expand_dims(image,axis=0))
-        model.invoke()
-        output_details = model.get_output_details()
-        predictions = model.get_tensor(output_details[0]['index'])[0]
-        predicted_class = CLASS_LABELS[predictions.argmax()]
-        confidence = predictions.max()
-        return predicted_class, confidence
+    if image is not None:
+        image = preprocess_image(image)
+        predictions = model.predict(tf.expand_dims(image, axis=0))[0]
+        predicted_class = CLASS_LABELS[predictions.argmax()]
+        confidence = predictions.max()
+        return predicted_class, confidence
 
 # list all available images to make predicitions on (NOT USED AT THE MOMENT!)
 #def list_images(directory, file_type):
