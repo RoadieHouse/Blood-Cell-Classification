@@ -1,5 +1,4 @@
 import streamlit as st
-import numpy as np
 import pandas as pd
 import streamlit.components.v1 as components
 from streamlit_option_menu import option_menu
@@ -8,7 +7,6 @@ import plotly.express as px
 import plotly.graph_objects as go
 import requests
 import base64
-import os
 
 #------------------------------------------------------------------------------------------------------------------------------------------
 # Overall page configuration

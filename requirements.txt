@@ -1,11 +1,14 @@
-numpy
 Pillow
 streamlit
 streamlit_option_menu
-tensorflow==2.16.1
-tensorflow_intel
 tensorboard
 pandas
 plotly
 requests
 st-files-connection
+base64
+torch
+fastai
+fastapi
+numpy
+logging
