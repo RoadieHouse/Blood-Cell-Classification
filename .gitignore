@@ -1,0 +1,13 @@
+#ignore log files
+*.log
+
+temp/
+
+
+*.toml
+docker-requirements.txt
+Dockerfile
+
+*.json
+
+*.pkl

@@ -1,12 +1,11 @@
 numpy
 Pillow
 streamlit
-streamlit_option_menu==0.3.2
-tensorflow
+streamlit_option_menu
+tensorflow==2.16.1
 tensorflow_intel
 tensorboard
 pandas
-matplotlib
-seaborn
 plotly
 requests
+st-files-connection
