@@ -6,7 +6,6 @@ pandas
 plotly
 requests
 st-files-connection
-base64
 torch
 fastai
 fastapi
