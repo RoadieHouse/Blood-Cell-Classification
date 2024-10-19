@@ -10,4 +10,5 @@ torch
 fastai
 fastapi
 numpy
+uvicorn
 logging
