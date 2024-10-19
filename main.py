@@ -6,6 +6,7 @@ import io
 import numpy as np
 from PIL import Image
 import logging
+from huggingface_hub import hf_hub_download
 
 
 # Set up logging
@@ -15,11 +16,17 @@ logger = logging.getLogger(__name__)
 # Initialize FastAPI
 app = FastAPI()
 
-# Try to load the model and handle the case when the model is missing
-model = None
-# Load models
-resnet_model = load_learner('resnet50_model.pkl')
-vgg_model = load_learner('vgg16_model.pkl')
+# Define the repository details on Hugging Face
+REPO_ID = "RoadHaus/BC_Classification"
+
+# Load the models from Hugging Face
+def load_model_from_huggingface(model_filename):
+    model_path = hf_hub_download(repo_id=REPO_ID, filename=model_filename)
+    return load_learner(model_path)
+
+# Load the resnet and vgg models
+resnet_model = load_model_from_huggingface("resnet50_model.pkl")
+vgg_model = load_model_from_huggingface("vgg16_model.pkl")
 
 def preprocess_image(file: UploadFile, size=(224, 224)):
     contents = file.file.read()

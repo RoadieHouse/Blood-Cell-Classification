@@ -12,3 +12,4 @@ fastapi
 numpy
 uvicorn
 logging
+huggingface_hub
