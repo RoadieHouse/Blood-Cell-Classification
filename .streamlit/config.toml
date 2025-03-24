@@ -1,3 +1,0 @@
-[server]
-# Point to the streamlit directory's requirements file
-requirementsPath = "streamlit/requirements.txt"

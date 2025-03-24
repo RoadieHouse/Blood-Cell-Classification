@@ -4,7 +4,7 @@
 temp/
 
 
-secrets.toml
+*.toml
 docker-requirements.txt
 Dockerfile
 
