@@ -377,21 +377,31 @@ if selected == 'Modelisation':
 #Section Prediction
 
 def get_api_endpoint(model_choice: str) -> str:
-        if model_choice == "Resnet50V2":
-            return st.secrets["RESNET_MODEL_API"]
-        elif model_choice == "VGG16":
-            return st.secrets["VGG_MODEL_API"]
-        else:
-            raise ValueError("Invalid model choice")
+    if model_choice == "Resnet50V2":
+        return st.secrets["RESNET_MODEL_API"]
+    elif model_choice == "VGG16":
+        return st.secrets["VGG_MODEL_API"]
+    else:
+        raise ValueError("Invalid model choice")
     
 def predict_image(image_file, api_endpoint: str):
+    st.info("Sending image to API for prediction...")
     files = {"file": ("image.jpg", image_file, "image/jpeg")}
     try:
-        response = requests.post(api_endpoint, files=files)
-        response.raise_for_status()
-        return response.json()
+        with st.spinner('Waiting for prediction...'):
+            response = requests.post(api_endpoint, files=files, timeout=30)
+            response.raise_for_status()
+            return response.json()
     except requests.exceptions.RequestException as e:
         st.error(f"Error communicating with the API: {str(e)}")
+        # Add more detailed error information
+        if hasattr(e, 'response') and e.response is not None:
+            st.error(f"Response status code: {e.response.status_code}")
+            try:
+                error_detail = e.response.json()
+                st.error(f"Error details: {error_detail}")
+            except:
+                st.error(f"Error response text: {e.response.text}")
     except ValueError as e:
         st.error(f"Error decoding API response: {str(e)}")
     return None
