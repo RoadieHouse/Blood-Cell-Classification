@@ -223,42 +223,42 @@ if selected == 'E.D.A.':
     cols[0].write(
     "<div style='display: flex; justify-content: center; align-items: center; padding-top: 25px'>"
     "<p style='font-size:12px;text-align:center;'>Munich</p></div>", unsafe_allow_html=True)
-    cols[1].image(cell_01, use_column_width=True)
-    cols[2].image(cell_02, use_column_width=True)
-    cols[3].image(cell_03, use_column_width=True)
-    cols[4].image(cell_04, use_column_width=True)
-    cols[5].image(cell_05, use_column_width=True)
-    cols[6].image(cell_06, use_column_width=True)
-    cols[7].image(cell_07, use_column_width=True)
-    cols[8].image(no_image_placeholder, use_column_width=True)  # No platelet image
+    cols[1].image(cell_01, use_container_width=True)
+    cols[2].image(cell_02, use_container_width=True)
+    cols[3].image(cell_03, use_container_width=True)
+    cols[4].image(cell_04, use_container_width=True)
+    cols[5].image(cell_05, use_container_width=True)
+    cols[6].image(cell_06, use_container_width=True)
+    cols[7].image(cell_07, use_container_width=True)
+    cols[8].image(no_image_placeholder, use_container_width=True)  # No platelet image
 
     # Second row - Barcelona
     cols = st.columns(9)
     cols[0].write(
     "<div style='display: flex; justify-content: center; align-items: center; padding-top: 23px'>"
     "<p style='font-size:12px;text-align:center;'>Barcelona</p></div>", unsafe_allow_html=True)
-    cols[1].image(cell_09, use_column_width=True)
-    cols[2].image(cell_10, use_column_width=True)
-    cols[3].image(cell_11, use_column_width=True)
-    cols[4].image(cell_12, use_column_width=True)
-    cols[5].image(cell_13, use_column_width=True)
-    cols[6].image(cell_14, use_column_width=True)
-    cols[7].image(cell_15, use_column_width=True)
-    cols[8].image(cell_16, use_column_width=True)
+    cols[1].image(cell_09, use_container_width=True)
+    cols[2].image(cell_10, use_container_width=True)
+    cols[3].image(cell_11, use_container_width=True)
+    cols[4].image(cell_12, use_container_width=True)
+    cols[5].image(cell_13, use_container_width=True)
+    cols[6].image(cell_14, use_container_width=True)
+    cols[7].image(cell_15, use_container_width=True)
+    cols[8].image(cell_16, use_container_width=True)
 
     # Third row - Raabin
     cols = st.columns(9)
     cols[0].write(
     "<div style='display: flex; justify-content: center; align-items: center; padding-top: 23px'>"
     "<p style='font-size:12px;text-align:center;'>Raabin</p></div>", unsafe_allow_html=True)
-    cols[1].image(cell_17, use_column_width=True)
-    cols[2].image(cell_18, use_column_width=True)
-    cols[3].image(no_image_placeholder, use_column_width=True)  # No erythroblast image
-    cols[4].image(no_image_placeholder, use_column_width=True)  # No IG image
-    cols[5].image(cell_21, use_column_width=True)
-    cols[6].image(cell_22, use_column_width=True)
-    cols[7].image(cell_23, use_column_width=True)
-    cols[8].image(no_image_placeholder, use_column_width=True)  # No platelet image
+    cols[1].image(cell_17, use_container_width=True)
+    cols[2].image(cell_18, use_container_width=True)
+    cols[3].image(no_image_placeholder, use_container_width=True)  # No erythroblast image
+    cols[4].image(no_image_placeholder, use_container_width=True)  # No IG image
+    cols[5].image(cell_21, use_container_width=True)
+    cols[6].image(cell_22, use_container_width=True)
+    cols[7].image(cell_23, use_container_width=True)
+    cols[8].image(no_image_placeholder, use_container_width=True)  # No platelet image
         
 #------------------------------------------------------------------------------------------------------------------------------------------
 # Section Models
@@ -326,8 +326,8 @@ if selected == 'Modelisation':
         """)
     
     col1, col2 = st.columns(2)
-    col1.image(Analysis_01, use_column_width=True, caption = 'ResNet50V2 Loss')
-    col2.image(Analysis_02, use_column_width=True, caption = 'ResNet50V2 Accuracy')
+    col1.image(Analysis_01, use_container_width=True, caption = 'ResNet50V2 Loss')
+    col2.image(Analysis_02, use_container_width=True, caption = 'ResNet50V2 Accuracy')
 
     st.markdown(
         """
@@ -338,8 +338,8 @@ if selected == 'Modelisation':
         """)
 
     col1, col2 = st.columns(2)
-    col1.image(Analysis_03, use_column_width=True, caption = 'ResNet50V2 with fine tuning Loss')
-    col2.image(Analysis_04, use_column_width=True, caption = 'ResNet50V2 with fine tuning Accuracy')
+    col1.image(Analysis_03, use_container_width=True, caption = 'ResNet50V2 with fine tuning Loss')
+    col2.image(Analysis_04, use_container_width=True, caption = 'ResNet50V2 with fine tuning Accuracy')
     
     st.image(Analysis_05, caption = 'ResNet50V2 Confusion Matrix')
 
@@ -369,8 +369,8 @@ if selected == 'Modelisation':
         """)
 
     col1, col2 = st.columns(2)
-    col1.image(Analysis_06, use_column_width=True, caption = 'VGG16 Loss')
-    col2.image(Analysis_07, use_column_width=True, caption = 'VGG16 Accuracy')
+    col1.image(Analysis_06, use_container_width=True, caption = 'VGG16 Loss')
+    col2.image(Analysis_07, use_container_width=True, caption = 'VGG16 Accuracy')
 
     st.image(Analysis_08, caption = 'VGG16 Confusion Matrix')
 #------------------------------------------------------------------------------------------------------------------------------------------
