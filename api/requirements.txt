@@ -3,7 +3,6 @@ uvicorn==0.27.1
 python-multipart==0.0.9
 torch==2.1.0
 fastai==2.7.13
-Pillow==10.1.0
 numpy==1.26.0
 huggingface-hub==0.20.2
 requests==2.31.0
