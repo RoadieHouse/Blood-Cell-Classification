@@ -16,12 +16,33 @@ from pathlib import PosixPath
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-# Custom unpickler to handle WindowsPath
-class WindowsPathFixUnpickler(pickle.Unpickler):
+# Custom unpickler to handle WindowsPath and persistent IDs
+class FixedUnpickler(pickle.Unpickler):
     def find_class(self, module, name):
+        # Replace WindowsPath with PosixPath
         if module == "pathlib" and name == "WindowsPath":
             return PosixPath
         return super().find_class(module, name)
+    
+    def persistent_load(self, pid):
+        # Handle persistent IDs - often used in FastAI models
+        # This is a simple implementation that might need refinement
+        logger.info(f"Handling persistent_load for: {pid}")
+        if isinstance(pid, tuple) and len(pid) > 1:
+            # Common format is (tag, key)
+            tag, key = pid[0], pid[1]
+            if tag == 'tensortype':
+                # For tensor types, return the corresponding tensor type
+                return getattr(torch, key)
+            elif tag == 'storage':
+                # For storage, create an empty tensor storage
+                storage_type, key, location, size = pid[1:]
+                return torch.storage._TypedStorage()
+            elif tag == 'module':
+                # For modules, import the module
+                return __import__(key, fromlist=[''])
+        # Default: return the pid itself (may or may not work)
+        return pid
 
 # Initialize FastAPI
 app = FastAPI()
@@ -29,16 +50,43 @@ app = FastAPI()
 # Define the repository details on Hugging Face
 REPO_ID = "RoadHaus/BC_Classification"
 
-# Load the models from Hugging Face with Windows path fix
+# Load the models from Hugging Face with proper error handling
 def load_model_from_huggingface(model_filename):
     try:
         logger.info(f"Downloading model {model_filename} from Hugging Face")
         model_path = hf_hub_download(repo_id=REPO_ID, filename=model_filename)
         logger.info(f"Model downloaded to {model_path}")
         
-        # Open with the custom unpickler
-        with open(model_path, 'rb') as f:
-            return WindowsPathFixUnpickler(f).load()
+        # First try using torch.load directly with custom pickle module
+        try:
+            # Try loading with the custom unpickler
+            with open(model_path, 'rb') as f:
+                unpickler = FixedUnpickler(f)
+                unpickler.persistent_load = unpickler.persistent_load  # Enable persistent_load
+                return unpickler.load()
+        except Exception as e:
+            logger.error(f"Custom unpickler failed: {str(e)}")
+            
+            # Fallback to loading directly with torch
+            try:
+                # Use a more direct approach with torch.load
+                return torch.load(
+                    model_path, 
+                    map_location=torch.device('cpu'),
+                    pickle_module=pickle,
+                    weights_only=False  # Try to load the full model
+                )
+            except Exception as e:
+                logger.error(f"torch.load fallback failed: {str(e)}")
+                
+                # Last resort: try loading with fastai's load_learner
+                try:
+                    from fastai.learner import load_learner
+                    return load_learner(model_path)
+                except Exception as e:
+                    logger.error(f"fastai load_learner fallback failed: {str(e)}")
+                    raise
+                
     except Exception as e:
         logger.error(f"Error loading model {model_filename}: {str(e)}")
         raise
